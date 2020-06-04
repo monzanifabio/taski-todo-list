@@ -26,22 +26,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Tasks</a>
+    <p>Hi, <?php echo ucfirst(htmlspecialchars($_SESSION["username"])); ?></p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo ucfirst(htmlspecialchars($_SESSION["username"])); ?>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="reset-password.php">Reset password</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="logout.php">Logout</a>
-          </div>
-        </li>
+        <a class="dropdown-item" href="reset-password.php">Reset password</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="logout.php">Logout</a>
       </ul>
     </div>
   </nav>
