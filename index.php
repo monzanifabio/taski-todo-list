@@ -51,7 +51,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col-md">
         <form action="add-todo.php" method="post">
           <div class="input-group mb-3 input-group-lg">
-            <input type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus>
+            <input type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
             <div class="input-group-append">
               <input type="submit" class="btn btn-primary" value="Add" id="button-addon2">
