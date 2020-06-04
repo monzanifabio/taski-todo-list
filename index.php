@@ -111,10 +111,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </div>
               <form id="update" action="update-todo.php" method="post">
                 <div class="modal-body">
-                  <textarea id="editBox" name="updateTodo" class="w-100"></textarea>
+                  <textarea id="editBox" name="updateTodo" rows="6" class="w-100"></textarea>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
                   <input type="submit" class="btn btn-primary" value="save">
               </form>
               </div>
