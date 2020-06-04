@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, p, a {
   font-size: 18px;
   text-decoration: none;
   line-height: inherit;
-  color: #969696;
+  color: #C4CFD8;
   cursor: pointer;
 }
 
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p, a {
 
   margin-right: 12px;
 
-  border: 2px solid #969696;
+  border: 2px solid #C4CFD8;
   border-radius: 50%;
 }
 
@@ -80,6 +80,7 @@ h1, h2, h3, h4, h5, h6, p, a {
   text-align: left;
   flex-grow: 10;
   cursor: pointer;
+  color: #515E69 !important;
 }
 
 .title {
@@ -90,7 +91,7 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 .completed {
   justify-content: unset;
-  background-color: #d6d8db;
+  background-color: #E8EDF1;
   color: #969696;
 }
 
@@ -185,4 +186,10 @@ textarea {
 .modal-content {
   border: none;
   border-radius: 12px;
+}
+
+::placeholder {
+  color: #515E69;
+  font-size: 18px;
+  vertical-align: middle;
 }
