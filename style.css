@@ -64,11 +64,16 @@ h1, h2, h3, h4, h5, h6, p, a {
   margin: 15px 0 15px 0;
 }
 
+.list-group {
+  border-radius: 8px;
+}
+
 .list-group-item {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  border: none;
 }
 
 .todo {
@@ -162,6 +167,22 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 
 textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #F4F5F7;
   outline: none;
   resize: none;
+}
+
+.form-control {
+  border: none;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+.modal-content {
+  border: none;
+  border-radius: 12px;
 }
