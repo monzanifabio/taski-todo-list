@@ -12,6 +12,13 @@ h1, h2, h3, h4, h5, h6, p, a {
   background-color: #F4F5F7 !important;
 }
 
+.navbar-light .navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  outline: none;
+}
+
 .button-delete, .button-tag {
   height: 25px;
 
