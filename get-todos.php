@@ -5,7 +5,7 @@ require_once "config.php";
 $user_id = $_SESSION['id'];
 
 //running SQL query
-$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0'" ;
+$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0' ORDER BY created_at DESC" ;
 $result=mysqli_query($link, $query)
   or die("Failed to load data.");
   // Store the number of retrieved rows
