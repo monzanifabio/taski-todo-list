@@ -3,9 +3,14 @@
 require_once "config.php";
 
 $user_id = $_SESSION['id'];
+$filter = $_GET['filter'];
+
+if (empty($filter)) {
+  $filter = "created_at DESC";
+}
 
 //running SQL query
-$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0' ORDER BY created_at DESC" ;
+$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0' ORDER BY $filter" ;
 $result=mysqli_query($link, $query)
   or die("Failed to load data.");
   // Store the number of retrieved rows
