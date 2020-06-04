@@ -88,7 +88,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mb-4">
           <div class="col-md">
             <h2 class="title mb-2 mt-4">Completed</h2>
             <span class="badge badge-secondary"><?php include('count-completed.php') ?></span>
