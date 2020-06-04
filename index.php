@@ -72,9 +72,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   Order by
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Recent</a>
-                  <a class="dropdown-item" href="#">Oldest</a>
-                  <a class="dropdown-item" href="#">A/Z</a>
+                  <a class="dropdown-item" href="index.php?filter=created_at DESC">Recent</a>
+                  <a class="dropdown-item" href="index.php?filter=created_at ASC">Oldest</a>
+                  <a class="dropdown-item" href="index.php?filter=todo">A/Z</a>
                 </div>
               </div>
             </div>
