@@ -122,37 +122,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           </div>
         </div>
 
-        <li class='list-group-item'>
-        <a href='check-todo.php?todo_id=' class='button-check'><i class='fas fa-check'></i></a>
-        <a onclick='selectId(this)' class='todo' data-toggle='modal' data-target='#editModal' data-id=""></a>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        <a href='delete-todo.php?todo_id=' class='button-delete far fa-trash-alt badge-pill'></a>
-
-        <div class="dropdown">
-          <a class="button-tag" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-tag"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item tag-red" href="#"><i class="fas fa-tag"></i></a>
-            <a class="dropdown-item tag-orange" href="#"><i class="fas fa-tag"></i></a>
-            <a class="dropdown-item tag-yellow" href="#"><i class="fas fa-tag"></i></a>
-            <a class="dropdown-item tag-green" href="#"><i class="fas fa-tag"></i></a>
-            <a class="dropdown-item tag-blue" href="#"><i class="fas fa-tag"></i></a>
-            <a class="dropdown-item tag-purple" href="#"><i class="fas fa-tag"></i></a>
-            <a class="dropdown-item tag-grey" href="#"><i class="fas fa-tag"></i></a>
-          </div>
-        </div>
-
-        <div class="btn-group dropleft">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropleft
-          </button>
-          <div class="dropdown-menu">
-            <!-- Dropdown menu links -->
-          </div>
-        </div>
-        </li>
-
         <script>
         function selectId(e) {
           var dataId = e.getAttribute('data-id');
