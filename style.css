@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6, p, a {
   margin-bottom: 0;
 }
 
+.bg-light {
+  background-color: #F4F5F7 !important;
+}
+
 .button-delete, .button-tag {
   height: 25px;
 
@@ -178,6 +182,9 @@ textarea {
 
 .form-control {
   border: none;
+}
+.form-todo {
+  width: 100%;
 }
 
 .modal-header, .modal-footer {

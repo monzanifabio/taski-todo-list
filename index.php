@@ -47,19 +47,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   </nav>
 
   <div class="container">
-      <div class="row">
+    <!-- Insert todo on top of the page -->
+      <!-- <div class="row">
         <div class="col-md">
         <form action="add-todo.php" method="post">
           <div class="input-group mb-3 input-group-lg">
             <input type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
-            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+            <input type="hidden" name="user_id" value="<?php //echo htmlspecialchars($_SESSION['id']); ?>">
             <div class="input-group-append">
               <input type="submit" class="btn btn-primary" value="Add" id="button-addon2">
             </div>
           </div>
         </form>
       </div>
-      </div>
+      </div> -->
 
         <div class="row">
           <div class="col-md">
@@ -98,6 +99,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
           </div>
         </div>
+        <!-- Spacing for bottom navabr -->
+        <div class="row mt-5 mb-5">
+        </div>
+
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+          <form class="form-todo" action="add-todo.php" method="post">
+            <div class="input-group mb-3 input-group-lg">
+              <input type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
+              <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+              <div class="input-group-append">
+                <input type="submit" class="btn btn-primary" value="Add" id="button-addon2">
+              </div>
+            </div>
+          </form>
+        </nav>
 
         <!-- Edit Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
