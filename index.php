@@ -65,7 +65,27 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <div class="col-md">
             <h2 class="title mb-2">Tasks</h2>
             <span class="badge badge-secondary"><?php include('count-todo.php') ?></span>
-
+            <div class="filters float-right">
+              <span class="filters-text text-uppercase font-weight-bold">Order by</span>
+              <div class="dropdown d-inline">
+                <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Recent
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Oldest</a>
+                  <a class="dropdown-item" href="#">A/Z</a>
+                </div>
+              </div>
+              <!-- <select id="filter-select" class="filters-select">
+                <option value="recent">Recent</option>
+                <option value="oldest">Oldest</option>
+                <option value="az">A/Z</option>
+              </select> -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
             <ul class="list-group">
               <?php include('get-todos.php') ?>
             </ul>
