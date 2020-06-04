@@ -66,21 +66,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <h2 class="title mb-2">Tasks</h2>
             <span class="badge badge-secondary"><?php include('count-todo.php') ?></span>
             <div class="filters float-right">
-              <span class="filters-text text-uppercase font-weight-bold">Order by</span>
+              <!-- <span class="filters-text text-uppercase font-weight-bold">Order by</span> -->
               <div class="dropdown d-inline">
                 <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Recent
+                  Order by
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Recent</a>
                   <a class="dropdown-item" href="#">Oldest</a>
                   <a class="dropdown-item" href="#">A/Z</a>
                 </div>
               </div>
-              <!-- <select id="filter-select" class="filters-select">
-                <option value="recent">Recent</option>
-                <option value="oldest">Oldest</option>
-                <option value="az">A/Z</option>
-              </select> -->
             </div>
           </div>
         </div>
@@ -175,5 +171,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script>
+        $('.dropdown-menu a').on('click', function(){
+        $('.dropdown-toggle').html($(this).html());
+    })
+        </script>
 </body>
 </html>
