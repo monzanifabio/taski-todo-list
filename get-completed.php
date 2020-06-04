@@ -12,7 +12,7 @@ $result=mysqli_query($link, $query)
 $isempty = mysqli_num_rows($result);
 // If the number of retrieved rows is equal to 0 then print Nothing otherwise execute the loop
 if ($isempty == 0) {
-  echo "<h4 class='empty'>You don't have any completed task...</h4>";
+  echo "<h4 class='empty'>👀 You don't have any completed task...</h4>";
 } else {
 //processing results
 while($row = mysqli_fetch_assoc($result)) {

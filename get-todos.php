@@ -17,8 +17,9 @@ $result=mysqli_query($link, $query)
   $isempty = mysqli_num_rows($result);
   // If the number of retrieved rows is equal to 0 then print Nothing otherwise execute the loop
   if ($isempty == 0) {
-    echo "<h4 class='empty'>You don't have any task yet</h4>";
-    echo "<p class='empty'>Create one using the above textbox</p>";
+    echo "<div class='empty'>";
+    echo "<h4>🎉 You don't have any task</h4>";
+    echo "</div>";
   } else {
   //processing results
   while($row = mysqli_fetch_assoc($result)){
