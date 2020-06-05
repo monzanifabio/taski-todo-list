@@ -124,7 +124,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                  <input type="submit" class="btn btn-primary" value="save">
+                  <input type="submit" class="btn btn-primary" value="Save">
               </form>
               </div>
             </div>
