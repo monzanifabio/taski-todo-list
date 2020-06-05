@@ -82,11 +82,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mt-4">
           <div class="col-md">
-            <h2 class="title mb-2 mt-4">Completed</h2>
+            <h2 class="title mb-2">Completed</h2>
             <span class="badge badge-secondary"><?php include('count-completed.php') ?></span>
+            <div class="filters float-right">
+              <a href="delete-completed.php" class="filters-select">Clear all</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="row">
+          <div class="col-md">
             <div class="list-group">
               <?php include('get-completed.php') ?>
             </div>
