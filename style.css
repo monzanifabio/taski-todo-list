@@ -1,3 +1,7 @@
+html, body, .container {
+  height: 100%;
+}
+
 body {
   color: unset;
   background-color: #F4F5F7;
@@ -206,4 +210,9 @@ textarea {
   color: #515E69;
   font-size: 18px;
   vertical-align: middle;
+}
+
+.help-block {
+  font-size: 12px;
+  color: #EB4868;
 }
