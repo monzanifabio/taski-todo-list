@@ -7,9 +7,10 @@ body {
   background-color: #F4F5F7;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p, a, a:hover {
   color: none !important;
   margin-bottom: 0;
+  text-decoration: none !important;
 }
 
 .bg-light {
@@ -180,6 +181,9 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 .filters-select:focus {
   outline: none;
+}
+.filters-select:hover {
+  color: #969696;
 }
 
 textarea {
