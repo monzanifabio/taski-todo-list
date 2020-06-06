@@ -7,7 +7,6 @@ $sql = "UPDATE todos SET completed='0', completed_at= NULL WHERE todo_id = '$tod
 
 if (mysqli_query($link, $sql)) {
   echo "Updated";
-  header ("Location: index.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
