@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -76,7 +76,7 @@ function refreshTodos() {
   var get_user_id = $('#user_id').val();
   $.ajax({
         type: "GET",
-        url: "get-todos.php",
+        url: "src/get-todos.php",
         data: {
           'user_id': get_user_id,
         },
@@ -90,7 +90,7 @@ function refreshTodos() {
     var get_user_id = $('#user_id').val();
     $.ajax({
           type: "GET",
-          url: "get-completed.php",
+          url: "src/get-completed.php",
           data: {
             'user_id': get_user_id,
           },
@@ -105,7 +105,7 @@ function refreshTodos() {
     var user_id = $('#user_id').val();
     var todo = $('#todo_text').val();
     $.ajax({
-      url: 'add-todo.php',
+      url: 'src/add-todo.php',
       type: 'POST',
       data: {
         'user_id': user_id,
@@ -122,7 +122,7 @@ function refreshTodos() {
   function deleteTodo(elem) {
     var todo_id = $(elem).attr('id');
     $.ajax({
-      url: 'delete-todo.php',
+      url: 'src/delete-todo.php',
       type: 'GET',
       data: {
         'todo_id': todo_id,
@@ -147,7 +147,7 @@ function refreshTodos() {
     var todo_id = $('#todo_id').val();
     var updated_todo = $('#editBox').val();
     $.ajax({
-      url: 'update-todo.php',
+      url: 'src/update-todo.php',
       type: 'POST',
       data: {
         'todo_id': todo_id,
@@ -164,7 +164,7 @@ function refreshTodos() {
   function checkTodo(elem) {
     var todo_id = $(elem).attr('id');
     $.ajax({
-      url: 'check-todo.php',
+      url: 'src/check-todo.php',
       type: 'GET',
       data: {
         'todo_id': todo_id,
@@ -180,7 +180,7 @@ function refreshTodos() {
   function undoTodo(elem) {
     var todo_id = $(elem).attr('id');
     $.ajax({
-      url: 'undo-todo.php',
+      url: 'src/undo-todo.php',
       type: 'GET',
       data: {
         'todo_id': todo_id,
@@ -197,7 +197,7 @@ function refreshTodos() {
     var todo_id = $(elem).attr('id');
     var todo_tag = $(elem).attr('name');
     $.ajax({
-      url: 'tag-todo.php',
+      url: 'src/tag-todo.php',
       type: 'GET',
       data: {
         'todo_id': todo_id,

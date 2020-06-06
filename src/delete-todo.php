@@ -1,8 +1,9 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config/config.php";
 
-$sql = "DELETE FROM todos WHERE completed = '1'";
+$todo_id = $_GET['todo_id'];
+$sql = "DELETE FROM todos WHERE todo_id = '$todo_id'";
 
 if (mysqli_query($link, $sql)) {
   echo "Deleted";

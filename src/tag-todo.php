@@ -1,12 +1,13 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config/config.php";
 
 $todo_id = $_GET['todo_id'];
-$sql = "UPDATE todos SET completed='0', completed_at= NULL WHERE todo_id = '$todo_id'";
+$todo_tag = $_GET['todo_tag'];
+$sql = "UPDATE todos SET tag = '$todo_tag' WHERE todo_id = '$todo_id'";
 
 if (mysqli_query($link, $sql)) {
-  echo "Updated";
+  echo "Tagged";
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

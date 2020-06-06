@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config/config.php";
 
 date_default_timezone_set('Europe/London');
 $timestamp = date("Y-m-d H:i:s");
