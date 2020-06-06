@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config/config.php";
+require_once "../config/config.php";
 
 $todo_id = $_GET['todo_id'];
 $sql = "DELETE FROM todos WHERE todo_id = '$todo_id'";

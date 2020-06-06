@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config/config.php";
+require_once "../config/config.php";
 
 $todo_id = $_POST['todo_id'];
 $updated_todo = mysqli_real_escape_string($link, $_POST['updated_todo']);

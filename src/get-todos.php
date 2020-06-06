@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config/config.php";
+require_once "../config/config.php";
 
 $user_id = $_GET['user_id'];
 $filter = $_GET['filter'];

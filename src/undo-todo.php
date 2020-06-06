@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config/config.php";
+require_once "../config/config.php";
 
 $todo_id = $_GET['todo_id'];
 $sql = "UPDATE todos SET completed='0', completed_at= NULL WHERE todo_id = '$todo_id'";
