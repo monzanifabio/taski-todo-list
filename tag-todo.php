@@ -3,12 +3,11 @@
 require_once "config.php";
 
 $todo_id = $_GET['todo_id'];
-$todo_tag = $_GET['getTag'];
+$todo_tag = $_GET['todo_tag'];
 $sql = "UPDATE todos SET tag = '$todo_tag' WHERE todo_id = '$todo_id'";
 
 if (mysqli_query($link, $sql)) {
   echo "Tagged";
-  header ("Location: index.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
