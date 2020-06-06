@@ -66,11 +66,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <script>
-
+// Execute when the page load
 $(document).ready(function(){
-  refreshTodos();
-  refreshCompleted();
+  refreshTodos(); // Get latest todos
+  refreshCompleted(); // Get latest completed todos
   });
+
 // Refresh todo list
 function refreshTodos() {
   var get_user_id = $('#user_id').val();
@@ -85,7 +86,8 @@ function refreshTodos() {
         }
     });
   };
-  //Refresh completed list
+
+  //Refresh completed todo list
   function refreshCompleted() {
     var get_user_id = $('#user_id').val();
     $.ajax({
@@ -100,7 +102,7 @@ function refreshTodos() {
       });
   };
 
-  // Save todo to db
+  // Add todo to database
   function addTodo() {
     var user_id = $('#user_id').val();
     var todo = $('#todo_text').val();
@@ -118,7 +120,7 @@ function refreshTodos() {
     });
   };
 
-  //Delete todo from db
+  //Delete todo from database
   function deleteTodo(elem) {
     var todo_id = $(elem).attr('id');
     $.ajax({
@@ -133,7 +135,7 @@ function refreshTodos() {
     });
   };
 
-  //Edit todo
+  //Edit todo into modal
   function editTodo(elem) {
     var todo_id = $(elem).attr('id');
     var get_todo_text = $(elem).text();
@@ -160,7 +162,7 @@ function refreshTodos() {
     });
   };
 
-  //Check todo
+  //Check todo to completed
   function checkTodo(elem) {
     var todo_id = $(elem).attr('id');
     $.ajax({
@@ -176,7 +178,7 @@ function refreshTodos() {
     });
   };
 
-  //Undo todo
+  //Undo todo from completed
   function undoTodo(elem) {
     var todo_id = $(elem).attr('id');
     $.ajax({
@@ -192,7 +194,7 @@ function refreshTodos() {
     });
   };
 
-  //Color tag todo
+  //Add a color tag to the todo
   function tagTodo(elem) {
     var todo_id = $(elem).attr('id');
     var todo_tag = $(elem).attr('name');
@@ -209,8 +211,6 @@ function refreshTodos() {
       }
     });
   };
-
-
 </script>
 
 </body>
