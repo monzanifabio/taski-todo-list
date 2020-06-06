@@ -24,21 +24,21 @@ $result=mysqli_query($link, $query)
   //processing results
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item'>";
-    echo "<a href='check-todo.php?todo_id=" . $row['todo_id'] . "' class='button-check'><i class='fas fa-check'></i></a>";
-    echo "<a onclick='selectId(this)' class='todo' data-toggle='modal' data-target='#editModal' data-id=" . $row['todo_id'] . ">" . ucfirst($row['todo']) . "</a>";
+    echo "<a onclick='checkTodo(this)' id='" . $row['todo_id'] . "' class='button-check'><i class='fas fa-check'></i></a>";
+    echo "<a onclick='editTodo(this)' class='todo' id=" . $row['todo_id'] . ">" . ucfirst($row['todo']) . "</a>";
     echo "<a onclick='deleteTodo(this)' id='" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
     echo "<div class='btn-group dropleft'>";
     echo "<a href='#' class='button-tag tag-" . $row['tag'] . "' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
     echo "<i class='fas fa-tag'></i>";
     echo "</a>";
     echo "<div class='dropdown-menu dropdown-left' aria-labelledby='dropdownMenuButton'>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=red' class='dropdown-item tag-red' href='#'><i class='fas fa-circle'></i></a>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=orange' class='dropdown-item tag-orange' href='#'><i class='fas fa-circle'></i></a>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=yellow' class='dropdown-item tag-yellow' href='#'><i class='fas fa-circle'></i></a>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=green' class='dropdown-item tag-green' href='#'><i class='fas fa-circle'></i></a>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=blue' class='dropdown-item tag-blue' href='#'><i class='fas fa-circle'></i></a>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=purple' class='dropdown-item tag-purple' href='#'><i class='fas fa-circle'></i></a>";
-    echo "<a href='tag-todo.php?todo_id=" . $row['todo_id'] . "&getTag=grey' class='dropdown-item tag-grey' href='#'><i class='fas fa-circle'></i></a>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='red' class='dropdown-item tag-red'><i class='fas fa-circle'></i></button>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='orange' class='dropdown-item tag-orange'><i class='fas fa-circle'></i></button>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='yellow' class='dropdown-item tag-yellow'><i class='fas fa-circle'></i></button>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='green' class='dropdown-item tag-green'><i class='fas fa-circle'></i></button>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='blue' class='dropdown-item tag-blue'><i class='fas fa-circle'></i></button>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='purple' class='dropdown-item tag-purple'><i class='fas fa-circle'></i></button>";
+    echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='grey' class='dropdown-item tag-grey'><i class='fas fa-circle'></i></button>";
     echo "</div>";
     echo "</div>";
     echo "</li>";
