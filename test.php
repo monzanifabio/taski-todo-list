@@ -82,7 +82,6 @@ function refreshTodos() {
         },
         success: function(response){
             $("#display_area").html(response);
-            //alert(response);
         }
     });
   };
@@ -97,7 +96,6 @@ function refreshTodos() {
           },
           success: function(response){
               $("#completed_area").html(response);
-              //alert(response);
           }
       });
   };
@@ -141,15 +139,13 @@ function refreshTodos() {
     var get_todo_text = $(elem).text();
     $('#editModal').modal();
     $('#todo_id').val(todo_id);
-    $('#editBox').empty().append(get_todo_text);
+    $('#editBox').val(get_todo_text);
   };
 
   //Update todo
   function updateTodo() {
     var todo_id = $('#todo_id').val();
     var updated_todo = $('#editBox').val();
-    alert(todo_id);
-    alert(updated_todo);
     $.ajax({
       url: 'update-todo.php',
       type: 'POST',
@@ -158,7 +154,6 @@ function refreshTodos() {
         'updated_todo': updated_todo,
       },
       success: function(response){
-        alert('Success');
         $('#editModal').modal('hide');
         refreshTodos();
       }
