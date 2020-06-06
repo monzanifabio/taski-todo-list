@@ -9,7 +9,6 @@ $sql = "UPDATE todos SET completed='1', completed_at = '$timestamp'  WHERE todo_
 
 if (mysqli_query($link, $sql)) {
   echo "Updated";
-  header ("Location: index.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
