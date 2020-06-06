@@ -31,8 +31,32 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <input type="submit" class="btn btn-primary" value="Add">
   </form>
 
-  <div id="display_area">
+  <div id="display_area"></div>
 
+  <div id="completed_area"></div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form onsubmit="updateTodo()">
+          <div class="modal-body">
+            <textarea id="editBox" rows="6" class="w-100"></textarea>
+            <input type="hidden" id="todo_id" value="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Save">
+        </form>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Optional JavaScript -->
@@ -45,7 +69,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 $(document).ready(function(){
   refreshTodos();
-
+  refreshCompleted();
   });
 // Refresh todo list
 function refreshTodos() {
@@ -61,6 +85,21 @@ function refreshTodos() {
             //alert(response);
         }
     });
+  };
+  //Refresh completed list
+  function refreshCompleted() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "get-completed.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#completed_area").html(response);
+              //alert(response);
+          }
+      });
   };
 
   // Save todo to db
@@ -94,7 +133,87 @@ function refreshTodos() {
         refreshTodos();
       }
     });
-  }
+  };
+
+  //Edit todo
+  function editTodo(elem) {
+    var todo_id = $(elem).attr('id');
+    var get_todo_text = $(elem).text();
+    $('#editModal').modal();
+    $('#todo_id').val(todo_id);
+    $('#editBox').empty().append(get_todo_text);
+  };
+
+  //Update todo
+  function updateTodo() {
+    var todo_id = $('#todo_id').val();
+    var updated_todo = $('#editBox').val();
+    alert(todo_id);
+    alert(updated_todo);
+    $.ajax({
+      url: 'update-todo.php',
+      type: 'POST',
+      data: {
+        'todo_id': todo_id,
+        'updated_todo': updated_todo,
+      },
+      success: function(response){
+        alert('Success');
+        $('#editModal').modal('hide');
+        refreshTodos();
+      }
+    });
+  };
+
+  //Check todo
+  function checkTodo(elem) {
+    var todo_id = $(elem).attr('id');
+    $.ajax({
+      url: 'check-todo.php',
+      type: 'GET',
+      data: {
+        'todo_id': todo_id,
+      },
+      success: function(response){
+        refreshTodos();
+        refreshCompleted();
+      }
+    });
+  };
+
+  //Undo todo
+  function undoTodo(elem) {
+    var todo_id = $(elem).attr('id');
+    $.ajax({
+      url: 'undo-todo.php',
+      type: 'GET',
+      data: {
+        'todo_id': todo_id,
+      },
+      success: function(response){
+        refreshTodos();
+        refreshCompleted();
+      }
+    });
+  };
+
+  //Color tag todo
+  function tagTodo(elem) {
+    var todo_id = $(elem).attr('id');
+    var todo_tag = $(elem).attr('name');
+    $.ajax({
+      url: 'tag-todo.php',
+      type: 'GET',
+      data: {
+        'todo_id': todo_id,
+        'todo_tag': todo_tag,
+      },
+      success: function(response){
+        refreshTodos();
+        refreshCompleted();
+      }
+    });
+  };
 
 
 </script>
