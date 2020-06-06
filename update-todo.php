@@ -2,7 +2,7 @@
 // Include config file
 require_once "config.php";
 
-$todo_id = $_GET['todo_id'];
+$todo_id = $_POST['todo_id'];
 $updated_todo = mysqli_real_escape_string($link, $_POST['updated_todo']);
 $sql = "UPDATE todos SET todo = '$updated_todo' WHERE todo_id = '$todo_id'";
 
