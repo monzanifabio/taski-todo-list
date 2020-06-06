@@ -2,7 +2,7 @@
 // Include config file
 require_once "config.php";
 
-$user_id = $_SESSION['id'];
+$user_id = $_GET['user_id'];
 $filter = $_GET['filter'];
 
 if (empty($filter)) {
@@ -26,7 +26,7 @@ $result=mysqli_query($link, $query)
     echo "<li class='list-group-item'>";
     echo "<a href='check-todo.php?todo_id=" . $row['todo_id'] . "' class='button-check'><i class='fas fa-check'></i></a>";
     echo "<a onclick='selectId(this)' class='todo' data-toggle='modal' data-target='#editModal' data-id=" . $row['todo_id'] . ">" . ucfirst($row['todo']) . "</a>";
-    echo "<a href='delete-todo.php?todo_id=" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
+    echo "<a onclick='deleteTodo(this)' id='" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
     echo "<div class='btn-group dropleft'>";
     echo "<a href='#' class='button-tag tag-" . $row['tag'] . "' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
     echo "<i class='fas fa-tag'></i>";
