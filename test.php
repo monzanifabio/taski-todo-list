@@ -31,6 +31,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <input type="submit" class="btn btn-primary" value="Add" id="add_todo_btn">
   </form>
 
+  <div class="dropdown d-inline">
+    <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Order by
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="index.php?filter=created_at DESC">Recent</a>
+      <a class="dropdown-item" href="index.php?filter=created_at ASC">Oldest</a>
+      <a class="dropdown-item" href="index.php?filter=todo">A/Z</a>
+    </div>
+  </div>
+
   <div id="display_area"></div>
 
   <div id="completed_area"></div>
