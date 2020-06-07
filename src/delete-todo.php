@@ -7,7 +7,6 @@ $sql = "DELETE FROM todos WHERE todo_id = '$todo_id'";
 
 if (mysqli_query($link, $sql)) {
   echo "Deleted";
-  header ("Location: index.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
