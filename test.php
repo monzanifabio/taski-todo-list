@@ -26,7 +26,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
 
   <form>
-    <input type="text" id="todo_text"></input>
+    <input type="text" id="todo_text" autofocus></input>
     <input type="hidden" id="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
     <input type="submit" class="btn btn-primary" value="Add" id="add_todo_btn">
   </form>
