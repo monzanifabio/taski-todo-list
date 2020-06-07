@@ -117,7 +117,6 @@ function refreshTodos() {
   function orderBy(elem) {
     var get_user_id = $('#user_id').val();
     var filter = $(elem).attr('id');
-    alert(filter);
     $.ajax({
       url: 'src/get-todos.php',
       type: 'GET',
@@ -126,7 +125,6 @@ function refreshTodos() {
         'filter': filter,
       },
       success: function(response){
-        alert('Filtered');
         $("#display_area").html(response);
       }
     });
