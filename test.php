@@ -25,10 +25,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
 
-  <form onsubmit="addTodo()">
+  <form>
     <input type="text" id="todo_text"></input>
     <input type="hidden" id="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
-    <input type="submit" class="btn btn-primary" value="Add">
+    <input type="submit" class="btn btn-primary" value="Add" id="add_todo_btn">
   </form>
 
   <div id="display_area"></div>
@@ -103,7 +103,7 @@ function refreshTodos() {
   };
 
   // Add todo to database
-  function addTodo() {
+  $('#add_todo_btn').click(function(){
     var user_id = $('#user_id').val();
     var todo = $('#todo_text').val();
     $.ajax({
@@ -118,7 +118,8 @@ function refreshTodos() {
         refreshTodos();
       }
     });
-  };
+    return false;
+  })
 
   //Delete todo from database
   function deleteTodo(elem) {
@@ -207,7 +208,6 @@ function refreshTodos() {
       },
       success: function(response){
         refreshTodos();
-        refreshCompleted();
       }
     });
   };
