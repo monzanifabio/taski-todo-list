@@ -36,9 +36,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       Order by
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="index.php?filter=created_at DESC">Recent</a>
-      <a class="dropdown-item" href="index.php?filter=created_at ASC">Oldest</a>
-      <a class="dropdown-item" href="index.php?filter=todo">A/Z</a>
+      <a class="dropdown-item" id="created_at desc" onclick="orderBy(this)">Recent</a>
+      <a class="dropdown-item" id="created_at asc" onclick="orderBy(this)">Oldest</a>
+      <a class="dropdown-item" id="todo" onclick="orderBy(this)">A/Z</a>
     </div>
   </div>
 
@@ -111,6 +111,25 @@ function refreshTodos() {
               $("#completed_area").html(response);
           }
       });
+  };
+
+  // Filter todo by
+  function orderBy(elem) {
+    var get_user_id = $('#user_id').val();
+    var filter = $(elem).attr('id');
+    alert(filter);
+    $.ajax({
+      url: 'src/get-todos.php',
+      type: 'GET',
+      data: {
+        'user_id': get_user_id,
+        'filter': filter,
+      },
+      success: function(response){
+        alert('Filtered');
+        $("#display_area").html(response);
+      }
+    });
   };
 
   // Add todo to database
