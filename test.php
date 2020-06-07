@@ -45,14 +45,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form onsubmit="updateTodo()">
+        <form>
           <div class="modal-body">
             <textarea id="editBox" rows="6" class="w-100"></textarea>
             <input type="hidden" id="todo_id" value="">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" value="Save">
+            <input type="submit" class="btn btn-primary" value="Save" id="save_todo_btn">
         </form>
         </div>
       </div>
@@ -119,7 +119,7 @@ function refreshTodos() {
       }
     });
     return false;
-  })
+  });
 
   //Delete todo from database
   function deleteTodo(elem) {
@@ -146,7 +146,7 @@ function refreshTodos() {
   };
 
   //Update todo
-  function updateTodo() {
+  $('#save_todo_btn').click(function() {
     var todo_id = $('#todo_id').val();
     var updated_todo = $('#editBox').val();
     $.ajax({
@@ -161,7 +161,8 @@ function refreshTodos() {
         refreshTodos();
       }
     });
-  };
+    return false;
+  });
 
   //Check todo to completed
   function checkTodo(elem) {
