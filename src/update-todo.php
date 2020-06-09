@@ -1,9 +1,10 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config/config.php";
 
 $todo_id = $_GET['todo_id'];
-$sql = "DELETE FROM todos WHERE todo_id = '$todo_id'";
+$updated_todo = mysqli_real_escape_string($link, $_POST['updateTodo']);
+$sql = "UPDATE todos SET todo = '$updated_todo' WHERE todo_id = '$todo_id'";
 
 if (mysqli_query($link, $sql)) {
   echo "Deleted";

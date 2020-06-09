@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config/config.php";
 
 $todo_id = $_GET['todo_id'];
 $todo_tag = $_GET['getTag'];

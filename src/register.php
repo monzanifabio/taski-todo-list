@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "config/config.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+                header("location: login-form.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }

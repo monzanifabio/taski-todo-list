@@ -1,4 +1,4 @@
-<?php include('login.php'); ?>
+<?php include('src/login.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <title>Login</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -27,7 +27,7 @@
               <div class="form-group">
                   <input type="submit" class="btn btn-primary btn-block" value="Login">
               </div>
-              <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+              <p>Don't have an account? <a href="register-form.php">Sign up now</a>.</p>
           </form>
         </div>
       </div>

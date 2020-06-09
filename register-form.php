@@ -1,4 +1,4 @@
-<?php include('register.php') ?>
+<?php include('src/register.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <title>Sign Up</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -33,7 +33,7 @@
                   <input type="submit" class="btn btn-primary btn-block" value="Submit">
                   <input type="reset" class="btn btn-default btn-block" value="Reset">
               </div>
-              <p>Already have an account? <a href="login.php">Login here</a>.</p>
+              <p>Already have an account? <a href="login-form.php">Login here</a>.</p>
           </form>
         </div>
       </div>

@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: login-form.php");
     exit;
 }
 ?>
@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -32,9 +32,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-        <a class="dropdown-item" href="reset-password.php">Reset password</a>
+        <a class="dropdown-item" href="reset-password-form.php">Reset password</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="logout.php">Logout</a>
+        <a class="dropdown-item" href="src/logout.php">Logout</a>
       </ul>
     </div>
   </nav>
@@ -43,7 +43,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <!-- Insert todo on top of the page -->
       <!-- <div class="row">
         <div class="col-md">
-        <form action="add-todo.php" method="post">
+        <form action="src/add-todo.php" method="post">
           <div class="input-group mb-3 input-group-lg">
             <input type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
             <input type="hidden" name="user_id" value="<?php //echo htmlspecialchars($_SESSION['id']); ?>">
@@ -58,7 +58,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="row">
           <div class="col-md">
             <h2 class="title mb-2">Tasks</h2>
-            <span class="badge badge-secondary"><?php include('count-todo.php') ?></span>
+            <span class="badge badge-secondary"><?php include('src/count-todo.php') ?></span>
             <div class="filters float-right">
               <!-- <span class="filters-text text-uppercase font-weight-bold">Order by</span> -->
               <div class="dropdown d-inline">
@@ -77,7 +77,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="row">
           <div class="col-md">
             <ul class="list-group">
-              <?php include('get-todos.php') ?>
+              <?php include('src/get-todos.php') ?>
             </ul>
           </div>
         </div>
@@ -85,9 +85,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="row mt-4">
           <div class="col-md">
             <h2 class="title mb-2">Completed</h2>
-            <span class="badge badge-secondary"><?php include('count-completed.php') ?></span>
+            <span class="badge badge-secondary"><?php include('src/count-completed.php') ?></span>
             <div class="filters float-right">
-              <a href="delete-completed.php" class="filters-select">Clear all</a>
+              <a href="src/delete-completed.php" class="filters-select">Clear all</a>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="row">
           <div class="col-md">
             <div class="list-group">
-              <?php include('get-completed.php') ?>
+              <?php include('src/get-completed.php') ?>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
 
         <nav class="navbar fixed-bottom navbar-light bg-light">
-          <form class="form-todo" action="add-todo.php" method="post">
+          <form class="form-todo" action="src/add-todo.php" method="post">
             <div class="input-group mb-3 input-group-lg">
               <input type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
               <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
@@ -125,7 +125,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form id="update" action="update-todo.php" method="post">
+              <form id="update" action="src/update-todo.php" method="post">
                 <div class="modal-body">
                   <textarea id="editBox" name="updateTodo" rows="6" class="w-100"></textarea>
                 </div>
@@ -142,7 +142,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         function selectId(e) {
           var dataId = e.getAttribute('data-id');
           var content = e.textContent;
-          var save = "update-todo.php?todo_id=" + dataId;
+          var save = "src/update-todo.php?todo_id=" + dataId;
           var editBox = document.getElementById('editBox');
           editBox.innerHTML = content;
           document.getElementById('update').setAttribute ('action', save);
