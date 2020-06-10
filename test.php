@@ -30,6 +30,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <input type="hidden" id="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
     <input type="submit" class="btn btn-primary" value="Add" id="add_todo_btn">
   </form>
+  <a href="logout.php" class="btn btn-primary">Logout</a>
 
   <div class="dropdown d-inline">
     <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
