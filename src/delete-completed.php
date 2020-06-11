@@ -2,7 +2,9 @@
 // Include config file
 require_once "../config/config.php";
 
-$sql = "DELETE FROM todos WHERE completed = '1'";
+$user_id = $_GET['user_id'];
+
+$sql = "DELETE FROM todos WHERE completed = '1' AND user_id = '$user_id'";
 
 if (mysqli_query($link, $sql)) {
   echo "Deleted";
