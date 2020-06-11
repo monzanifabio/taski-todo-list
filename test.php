@@ -51,9 +51,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               Order by
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" id="created_at desc" onclick="orderBy(this)">Recent</a>
-              <a class="dropdown-item" id="created_at asc" onclick="orderBy(this)">Oldest</a>
-              <a class="dropdown-item" id="todo" onclick="orderBy(this)">A/Z</a>
+              <p class="dropdown-item" id="created_at desc" onclick="orderBy(this)">Recent</p>
+              <p class="dropdown-item" id="created_at asc" onclick="orderBy(this)">Oldest</p>
+              <p class="dropdown-item" id="todo" onclick="orderBy(this)">A/Z</p>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <h2 class="title mb-2">Completed</h2>
         <span class="badge badge-secondary" id="count_completed"></span>
         <div class="filters float-right">
-          <a onclick="deleteCompleted()" class="filters-select">Clear all</a>
+          <p onclick="deleteCompleted()" class="filters-select">Clear all</p>
         </div>
       </div>
     </div>
