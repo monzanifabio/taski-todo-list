@@ -13,6 +13,15 @@ h1, h2, h3, h4, h5, h6, p, a, a:hover {
   text-decoration: none !important;
 }
 
+a:not([href]) {
+  color: #C4CFD8;
+  cursor: pointer;
+}
+
+a:not([href]):hover {
+  color: #969696;
+}
+
 .bg-light {
   background-color: #F4F5F7 !important;
 }
@@ -121,6 +130,7 @@ h1, h2, h3, h4, h5, h6, p, a, a:hover {
 .dropdown-item:hover {
   color: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .dropdown-left.show {
