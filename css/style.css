@@ -194,6 +194,7 @@ a:not([href]):hover {
 }
 .filters-select:hover {
   color: #969696;
+  cursor: pointer;
 }
 
 textarea {
