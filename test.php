@@ -72,7 +72,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <h2 class="title mb-2">Completed</h2>
         <span class="badge badge-secondary" id="count_completed"></span>
         <div class="filters float-right">
-          <p onclick="deleteCompleted()" class="filters-select">Clear all</p>
+          <p id="clear_all" onclick="deleteCompleted()" class="filters-select">Clear all</p>
         </div>
       </div>
     </div>
@@ -138,7 +138,18 @@ $(document).ready(function(){
   refreshCompleted(); // Get latest completed todos
   countTodos(); // Get the number of todos
   countCompleted(); // Get the number of completed todos
+  clearAll();
   });
+
+  // Show clear all button?
+  function clearAll() {
+    var todos_completed = $('#count_completed').text();
+    if (todos_completed == 0) {
+      $('#clear_all').hide();
+    } else {
+      $('#clear_all').show();
+    }
+  };
 
   // Refresh todo list
   function refreshTodos() {
@@ -196,6 +207,7 @@ $(document).ready(function(){
           },
           success: function(response){
               $("#count_completed").html(response);
+              clearAll();
           }
       });
     };
@@ -265,6 +277,7 @@ $(document).ready(function(){
       success: function(response){
         refreshCompleted();
         countCompleted();
+        clearAll();
       }
     });
   };
@@ -311,6 +324,7 @@ $(document).ready(function(){
         refreshCompleted();
         countTodos();
         countCompleted();
+        clearAll();
       }
     });
   };
@@ -329,6 +343,7 @@ $(document).ready(function(){
         refreshCompleted();
         countTodos();
         countCompleted();
+        clearAll();
       }
     });
   };
