@@ -25,27 +25,81 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
 
-  <form>
-    <input type="text" id="todo_text" autofocus></input>
-    <input type="hidden" id="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
-    <input type="submit" class="btn btn-primary" value="Add" id="add_todo_btn">
-  </form>
-  <a href="logout.php" class="btn btn-primary">Logout</a>
-
-  <div class="dropdown d-inline">
-    <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Order by
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <p>Hi, <?php echo ucfirst(htmlspecialchars($_SESSION["username"])); ?></p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" id="created_at desc" onclick="orderBy(this)">Recent</a>
-      <a class="dropdown-item" id="created_at asc" onclick="orderBy(this)">Oldest</a>
-      <a class="dropdown-item" id="todo" onclick="orderBy(this)">A/Z</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <a class="dropdown-item" href="reset-password.php">Reset password</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="logout.php">Logout</a>
+      </ul>
     </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md">
+        <h2 class="title mb-2">Tasks</h2>
+        <span class="badge badge-secondary" id="count_todos"></span>
+        <div class="filters float-right">
+          <div class="dropdown d-inline">
+            <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Order by
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id="created_at desc" onclick="orderBy(this)">Recent</a>
+              <a class="dropdown-item" id="created_at asc" onclick="orderBy(this)">Oldest</a>
+              <a class="dropdown-item" id="todo" onclick="orderBy(this)">A/Z</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md">
+        <ul class="list-group" id="display_area">
+        </ul>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md">
+        <h2 class="title mb-2">Completed</h2>
+        <span class="badge badge-secondary" id="count_completed"></span>
+        <div class="filters float-right">
+          <a onclick="deleteCompleted()" class="filters-select">Clear all</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md">
+        <div class="list-group" id="completed_area">
+        </div>
+      </div>
+    </div>
+    <!-- Spacing for bottom navabr -->
+    <div class="row mt-5 mb-5">
+    </div>
+
   </div>
 
-  <div id="display_area"></div>
-
-  <div id="completed_area"></div>
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <form class="form-todo">
+      <div class="input-group mb-3 input-group-lg">
+        <input id="todo_text" type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
+        <input id="user_id" type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+        <div class="input-group-append">
+          <input type="submit" class="btn btn-primary" value="Add" id="add_todo_btn">
+        </div>
+      </div>
+    </form>
+  </nav>
 
   <!-- Edit Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,22 +136,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $(document).ready(function(){
   refreshTodos(); // Get latest todos
   refreshCompleted(); // Get latest completed todos
+  countTodos(); // Get the number of todos
+  countCompleted(); // Get the number of completed todos
   });
 
-// Refresh todo list
-function refreshTodos() {
-  var get_user_id = $('#user_id').val();
-  $.ajax({
-        type: "GET",
-        url: "src/get-todos.php",
-        data: {
-          'user_id': get_user_id,
-        },
-        success: function(response){
-            $("#display_area").html(response);
-        }
-    });
-  };
+  // Refresh todo list
+  function refreshTodos() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "src/get-todos.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#display_area").html(response);
+          }
+      });
+    };
 
   //Refresh completed todo list
   function refreshCompleted() {
@@ -113,6 +169,36 @@ function refreshTodos() {
           }
       });
   };
+
+  //Count todos
+  function countTodos() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "src/count-todo.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#count_todos").html(response);
+          }
+      });
+    };
+
+  //Count completed
+  function countCompleted() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "src/count-completed.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#count_completed").html(response);
+          }
+      });
+    };
 
   // Filter todo by
   function orderBy(elem) {
@@ -145,6 +231,7 @@ function refreshTodos() {
       success: function(response){
         $('#todo_text').val('');
         refreshTodos();
+        countTodos();
       }
     });
     return false;
@@ -161,6 +248,23 @@ function refreshTodos() {
       },
       success: function(response){
         refreshTodos();
+        countTodos();
+      }
+    });
+  };
+
+  // Delete all completed todos
+  function deleteCompleted() {
+    var user_id = $('#user_id').val();
+    $.ajax({
+      url: 'src/delete-completed.php',
+      type: 'GET',
+      data: {
+        'user_id': user_id,
+      },
+      success: function(response){
+        refreshCompleted();
+        countCompleted();
       }
     });
   };
@@ -205,6 +309,8 @@ function refreshTodos() {
       success: function(response){
         refreshTodos();
         refreshCompleted();
+        countTodos();
+        countCompleted();
       }
     });
   };
@@ -221,6 +327,8 @@ function refreshTodos() {
       success: function(response){
         refreshTodos();
         refreshCompleted();
+        countTodos();
+        countCompleted();
       }
     });
   };
