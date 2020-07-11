@@ -252,11 +252,13 @@ $(document).ready(function(){
   //Delete todo from database
   function deleteTodo(elem) {
     var todo_id = $(elem).attr('id');
+    var user_id = $('#user_id').val();
     $.ajax({
       url: 'src/delete-todo.php',
       type: 'GET',
       data: {
         'todo_id': todo_id,
+        'user_id': user_id,
       },
       success: function(response){
         refreshTodos();
