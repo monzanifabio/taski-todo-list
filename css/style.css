@@ -33,6 +33,10 @@ a:not([href]):hover {
   outline: none;
 }
 
+.button-delete {
+  display: none;
+}
+
 .button-delete, .button-tag {
   height: 25px;
 
@@ -41,6 +45,10 @@ a:not([href]):hover {
   line-height: inherit;
   color: #C4CFD8;
   cursor: pointer;
+}
+
+.todo:hover + .button-delete, .button-delete:hover {
+  display: initial;
 }
 
 .button-delete:hover {
