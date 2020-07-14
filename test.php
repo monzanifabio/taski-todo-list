@@ -32,6 +32,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
+        <a class="dropdown-item btn btn-light" data-toggle="modal" data-target="#folderModal">New folder</a>
         <a class="dropdown-item" href="reset-password.php">Reset password</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="logout.php">Logout</a>
@@ -59,12 +60,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
       </div>
     </div>
-
+    <!-- Display tasks -->
     <div class="row">
       <div class="col-md">
         <ul class="list-group" id="display_area">
         </ul>
       </div>
+    </div>
+
+    <div class="row mt-4" id="display_folders">
+
     </div>
 
     <div class="row mt-4">
@@ -125,6 +130,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
   </div>
 
+  <!-- Folder Modal -->
+  <div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New folder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="input-group mb-3 input-group-lg">
+              <input id="folder_name" type="text" class="form-control border" placeholder="Name your folder" required autocomplete="off">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" class="btn btn-primary" value="Create" id="create_folder">
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="vendors/bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
@@ -136,6 +166,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $(document).ready(function(){
   refreshTodos(); // Get latest todos
   refreshCompleted(); // Get latest completed todos
+  refreshFolders(); // Get latest folders
   countTodos(); // Get the number of todos
   countCompleted(); // Get the number of completed todos
   clearAll();
@@ -162,6 +193,21 @@ $(document).ready(function(){
           },
           success: function(response){
               $("#display_area").html(response);
+          }
+      });
+    };
+
+  //Refresh folders
+  function refreshFolders() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "src/get-folders.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#display_folders").html(response);
           }
       });
     };
@@ -249,6 +295,28 @@ $(document).ready(function(){
     return false;
   });
 
+  //Create folders
+  $('#create_folder').click(function() {
+    var user_id = $('#user_id').val();
+    var folder_name = $('#folder_name').val();
+    $.ajax({
+      url: 'src/create-folder.php',
+      type: 'POST',
+      data: {
+        'user_id': user_id,
+        'folder_name': folder_name,
+      },
+      success: function(response){
+        $('#folder_name').val('');
+        $('#folderModal').modal('hide');
+        refreshFolders();
+        refreshTodos();
+        countTodos();
+      }
+    });
+    return false;
+  });
+
   //Delete todo from database
   function deleteTodo(elem) {
     var todo_id = $(elem).attr('id');
@@ -266,6 +334,23 @@ $(document).ready(function(){
       }
     });
   };
+
+  // Delete folder from database
+  function deleteFolder(elem) {
+    var folder_id = $(elem).attr('id');
+    $.ajax({
+      url: 'src/delete-folder.php',
+      type: 'GET',
+      data: {
+        'folder_id': folder_id,
+      },
+      success: function(response){
+        refreshFolders();
+        refreshTodos();
+        countTodos();
+      }
+    });
+  }
 
   // Delete all completed todos
   function deleteCompleted() {
