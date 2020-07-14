@@ -217,6 +217,9 @@ textarea {
 .form-control {
   border: none;
 }
+.border {
+  border: unset;
+}
 .form-todo {
   width: 100%;
 }
