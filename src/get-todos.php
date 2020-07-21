@@ -26,10 +26,13 @@ $result=mysqli_query($link, $query)
     echo "<li class='list-group-item'>";
     echo "<a onclick='checkTodo(this)' id='" . $row['todo_id'] . "' class='button-check'><i class='fas fa-check'></i></a>";
     echo "<a onclick='editTodo(this)' class='todo' id=" . $row['todo_id'] . ">" . ucfirst($row['todo']) . "</a>";
+    echo "<div class='options'>";
     echo "<a onclick='deleteTodo(this)' id='" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
+    echo "<a onclick='labelTodo(this)' id='" . $row['todo_id'] . "' class='button-label fas fa-tag badge-pill'></a>";
+    echo "</div>";
     echo "<div class='btn-group dropleft'>";
     echo "<a href='#' class='button-tag tag-" . $row['tag'] . "' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-    echo "<i class='fas fa-tag'></i>";
+    echo "<i class='fas fa-circle'></i>";
     echo "</a>";
     echo "<div class='dropdown-menu dropdown-left' aria-labelledby='dropdownMenuButton'>";
     echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='red' class='dropdown-item tag-red'><i class='fas fa-circle'></i></button>";
