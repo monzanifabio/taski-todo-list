@@ -28,7 +28,7 @@ $result=mysqli_query($link, $query)
     echo "<div class='todo-container'>";
     echo "<a onclick='editTodo(this)' class='todo' id=" . $row['todo_id'] . ">" . ucfirst($row['todo']) . "</a>";
     if ($row['labelName'] != "") {
-      echo "<p class='label label-" . $row['labelColor'] . "'>" . $row['labelName'] . "<button class='remove-label' type='button'><span aria-hidden='true'>&times;</span></button></p>";
+      echo "<p class='label label-" . $row['labelColor'] . "'>" . $row['labelName'] . "<a onclick='deleteLabel(this)' class='remove-label' id='" . $row['todo_id'] . "'><span aria-hidden='true'>&times;</span></a></p>";
     }
     echo "</div>";
     echo "<div class='options'>";
