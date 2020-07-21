@@ -155,10 +155,46 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
   </div>
 
+  <!-- Label Modal -->
+  <div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New label</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="labelForm">
+          <div class="modal-body">
+            <div class="input-group mb-3 input-group-lg">
+              <input id="label_name" type="text" class="form-control border" placeholder="Name your label" required autocomplete="off">
+              <input type="hidden" id="label_todo_id" value="">
+            </div>
+            <div class="label-container d-flex flex-row justify-content-between">
+              <input class="red" type="radio" id="red" name="labelColor" value="red">
+              <input class="orange" type="radio" id="orange" name="labelColor" value="orange">
+              <input class="yellow" type="radio" id="yellow" name="labelColor" value="yellow">
+              <input class="green" type="radio" id="green" name="labelColor" value="green">
+              <input class="blue" type="radio" id="blue" name="labelColor" value="blue">
+              <input class="purple" type="radio" id="purple" name="labelColor" value="purple">
+              <input class="gray" type="radio" id="gray" name="labelColor" value="gray" checked="checked">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" class="btn btn-primary" value="Create" id="create_label">
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="vendors/bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
-      <script src="vendors/bootstrap-4.5.0/js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="vendors/bootstrap-4.5.0/js/popper.min.js"></script>
       <script src="vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
 
 <script>
@@ -309,6 +345,37 @@ $(document).ready(function(){
       success: function(response){
         $('#folder_name').val('');
         $('#folderModal').modal('hide');
+        refreshFolders();
+        refreshTodos();
+        countTodos();
+      }
+    });
+    return false;
+  });
+
+  //Create label modal launcher
+  function labelTodo(elem) {
+    var todo_id = $(elem).attr('id');
+    $('#labelModal').modal();
+    $('#label_todo_id').val(todo_id);
+  }
+
+  //Create label
+  $('#create_label').click(function() {
+    var todo_id = $('#label_todo_id').val();
+    var label_name = $('#label_name').val();
+    var label_color = $('input[name=labelColor]:checked', '#labelForm').val()
+    $.ajax({
+      url: 'src/add-label.php',
+      type: 'POST',
+      data: {
+        'todo_id': todo_id,
+        'label_name': label_name,
+        'label_color': label_color,
+      },
+      success: function(response){
+        $('#label_name').val('');
+        $('#labelModal').modal('hide');
         refreshFolders();
         refreshTodos();
         countTodos();
