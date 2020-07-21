@@ -279,7 +279,7 @@ input[type="radio"] {
 }
 .label-yellow {
   background-color: #FFEC53;
-  color: #FFEC53;
+  color: #af9b00;
 }
 
 .green {
@@ -295,7 +295,7 @@ input[type="radio"] {
 }
 .label-blue {
   background-color: #98D4FD;
-  color: #98D4FD;
+  color: #2b89ca;
 }
 
 .purple {
@@ -303,7 +303,7 @@ input[type="radio"] {
 }
 .label-purple {
   background-color: #E5BAFA;
-  color: #E5BAFA;
+  color: #9e5fbd;
 }
 
 .gray {
@@ -311,7 +311,7 @@ input[type="radio"] {
 }
 .label-gray {
   background-color: #C8C8C8;
-  color: #C8C8C8;
+  color: #828282;
 }
 
 input[type="radio"]:focus {
@@ -338,9 +338,8 @@ input[type="radio"]:checked {
 }
 
 .remove-label {
-  background-color: transparent;
-  border: 0;
-  color: #333333;
+  padding: .5rem;
+  color: #333333 !important;
   font-size: .6rem;
   font-weight: 800;
   opacity: .5;
