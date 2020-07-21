@@ -33,11 +33,11 @@ a:not([href]):hover {
   outline: none;
 }
 
-.button-delete {
-  display: none;
+.options {
+  opacity: 0;
 }
 
-.button-delete, .button-tag {
+.button-delete, .button-tag, .button-label {
   height: 25px;
 
   font-size: 18px;
@@ -47,8 +47,8 @@ a:not([href]):hover {
   cursor: pointer;
 }
 
-.todo:hover + .button-delete, .button-delete:hover {
-  display: initial;
+.todo:hover + .options, .options:hover {
+  opacity: 1;
 }
 
 .button-delete:hover {
@@ -241,4 +241,56 @@ textarea {
 .help-block {
   font-size: 12px;
   color: #EB4868;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  /* background-color only for content */
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.red {
+  background-color: #F2928C;
+}
+
+.orange {
+  background-color: #FDC654;
+}
+
+.yellow {
+  background-color: #FFEC53;
+}
+
+.green {
+  background-color: #BDEC4F;
+}
+
+.blue {
+  background-color: #98D4FD;
+}
+
+.purple {
+  background-color: #E5BAFA;
+}
+
+.gray {
+  background-color: #C8C8C8;
+}
+
+input[type="radio"]:focus {
+  outline: none;
+}
+
+input[type="radio"]:checked {
+  outline: none;
+  opacity: 1;
+  transform: scale(1.2);
 }
