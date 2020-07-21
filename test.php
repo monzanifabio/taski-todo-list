@@ -402,6 +402,22 @@ $(document).ready(function(){
     });
   };
 
+  //Delete label from todo
+  function deleteLabel(elem) {
+    var todo_id = $(elem).attr('id');
+    $.ajax({
+      url: 'src/delete-label.php',
+      type: 'GET',
+      data: {
+        'todo_id': todo_id,
+      },
+      success: function(response){
+        refreshTodos();
+        countTodos();
+      }
+    });
+  };
+
   // Delete folder from database
   function deleteFolder(elem) {
     var folder_id = $(elem).attr('id');
