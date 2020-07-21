@@ -34,6 +34,7 @@ a:not([href]):hover {
 }
 
 .options {
+  width: 25%;
   opacity: 0;
 }
 
@@ -47,7 +48,7 @@ a:not([href]):hover {
   cursor: pointer;
 }
 
-.todo:hover + .options, .options:hover {
+.todo-container:hover + .options, .options:hover {
   opacity: 1;
 }
 
@@ -260,29 +261,57 @@ input[type="radio"] {
 .red {
   background-color: #F2928C;
 }
+.label-red {
+  background-color: #F2928C;
+  color: #920000;
+}
 
 .orange {
   background-color: #FDC654;
+}
+.label-orange {
+  background-color: #FDC654;
+  color: #a97200;
 }
 
 .yellow {
   background-color: #FFEC53;
 }
+.label-yellow {
+  background-color: #FFEC53;
+  color: #FFEC53;
+}
 
 .green {
   background-color: #BDEC4F;
+}
+.label-green {
+  background-color: #BDEC4F;
+  color: #659000;
 }
 
 .blue {
   background-color: #98D4FD;
 }
+.label-blue {
+  background-color: #98D4FD;
+  color: #98D4FD;
+}
 
 .purple {
   background-color: #E5BAFA;
 }
+.label-purple {
+  background-color: #E5BAFA;
+  color: #E5BAFA;
+}
 
 .gray {
   background-color: #C8C8C8;
+}
+.label-gray {
+  background-color: #C8C8C8;
+  color: #C8C8C8;
 }
 
 input[type="radio"]:focus {
@@ -293,4 +322,26 @@ input[type="radio"]:checked {
   outline: none;
   opacity: 1;
   transform: scale(1.2);
+}
+
+.todo-container {
+  width: 100%;
+}
+
+.label {
+  width: fit-content;
+  margin-top: .4rem;
+  font-size: .6rem;
+  font-weight: 800;
+  padding: .1rem .1rem .1rem .5rem;
+  border-radius: 5rem;
+}
+
+.remove-label {
+  background-color: transparent;
+  border: 0;
+  color: #333333;
+  font-size: .6rem;
+  font-weight: 800;
+  opacity: .5;
 }
