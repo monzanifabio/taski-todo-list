@@ -97,7 +97,8 @@ a:not([href]):hover {
 }
 
 .text-crossed {
-  text-decoration: line-through;
+  color: #C4CFD8;
+  text-decoration: line-through !important;
   display: inline;
 }
 
