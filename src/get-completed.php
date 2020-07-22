@@ -17,7 +17,7 @@ if ($isempty == 0) {
 //processing results
 while($row = mysqli_fetch_assoc($result)) {
     echo "<li class='list-group-item completed'>";
-    echo "<a onclick='undoTodo(this)' id='" . $row['todo_id'] . "' class='button-undo fas fa-undo-alt'></a>";
+    echo "<a onclick='undoTodo(this)' id='" . $row['todo_id'] . "' class='button-undo fas fa-trash-restore-alt'></a>";
     echo "<p class='text-crossed'>" . $row['todo'] . "</p>";
     echo "</li>";
   }
