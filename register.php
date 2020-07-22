@@ -14,19 +14,19 @@
         <div class="my-auto col-md-4 offset-md-4 mt-5">
           <h2 class="pb-4">Sign Up</h2>
           <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-              <div class="form-group <?php //echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                  <label>Username</label>
-                  <input id="username" type="text" name="username" class="form-control" value="<?php //echo $username; ?>">
-                  <span class="help-block"><?php echo $username_err; ?></span>
+              <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                  <label>Email</label>
+                  <input id="email" type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                  <span class="help-block"><?php echo $email_err; ?></span>
               </div>
               <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                   <label>Password</label>
-                  <input id="password" type="password" name="password" class="form-control" value="<?php //echo $password; ?>">
+                  <input id="password" type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                   <span class="help-block"><?php echo $password_err; ?></span>
               </div>
               <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                   <label>Confirm Password</label>
-                  <input type="password" name="confirm_password" class="form-control" value="<?php //echo $confirm_password; ?>">
+                  <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                   <span class="help-block"><?php echo $confirm_password_err; ?></span>
               </div>
               <div class="form-group">
@@ -46,13 +46,13 @@
 <script>
 $(document).ready(function(){
 $('#register_btn').click(function() {
-  var username = $('#username').val();
+  var email = $('#email').val();
   var password = $('#password').val();
   $.ajax({
         type: "POST",
         url: "src/register.php",
         data: {
-          'username': username,
+          'email': email,
           'password': password,
         },
         success: function(response){

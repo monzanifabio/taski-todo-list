@@ -14,10 +14,10 @@
         <div class="my-auto col-md-4 offset-md-4 mt-5">
           <h2 class="pb-4">Login</h2>
           <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-              <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                  <label>Username</label>
-                  <input id="username" type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                  <span class="help-block"><?php echo $username_err; ?></span>
+              <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                  <label>Email</label>
+                  <input id="email" type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                  <span class="help-block"><?php echo $email_err; ?></span>
               </div>
               <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                   <label>Password</label>
@@ -39,13 +39,13 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <!-- <script>
 $('#login_btn').click(function() {
-  var username = $('#username').val();
+  var email = $('#email').val();
   var password = $('#password').val();
   $.ajax({
         type: "POST",
         url: "src/login.php",
         data: {
-          'username': username,
+          'email': email,
           'password': password,
         },
         success: function(response){
