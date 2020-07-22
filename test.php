@@ -171,6 +171,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <div class="modal-body">
               <div class="form-group mb-3 input-group-lg">
                 <input id="label_name" type="text" class="form-control border" maxlength="48" placeholder="Name your label" required autocomplete="off">
+                <span id="label_warning" class="help-block"></span>
                 <small class="form-text text-muted">Max 48 characters</small>
                 <input type="hidden" id="label_todo_id" value="">
               </div>
@@ -368,23 +369,28 @@ $(document).ready(function(){
     var todo_id = $('#label_todo_id').val();
     var label_name = $('#label_name').val();
     var label_color = $('input[name=labelColor]:checked', '#labelForm').val()
-    $.ajax({
-      url: 'src/add-label.php',
-      type: 'POST',
-      data: {
-        'todo_id': todo_id,
-        'label_name': label_name,
-        'label_color': label_color,
-      },
-      success: function(response){
-        $('#label_name').val('');
-        $('#labelModal').modal('hide');
-        refreshFolders();
-        refreshTodos();
-        countTodos();
-      }
-    });
-    return false;
+    if (label_name == "") {
+      $('#label_warning').text("Don't forget to name your label");
+    } else {
+      $.ajax({
+        url: 'src/add-label.php',
+        type: 'POST',
+        data: {
+          'todo_id': todo_id,
+          'label_name': label_name,
+          'label_color': label_color,
+        },
+        success: function(response){
+          $('#label_name').val('');
+          $('#label_warning').text('')
+          $('#labelModal').modal('hide');
+          refreshFolders();
+          refreshTodos();
+          countTodos();
+        }
+      });
+      return false;
+    }
   });
 
   //Delete todo from database
