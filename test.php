@@ -169,10 +169,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
         <form id="labelForm">
           <div class="modal-body">
-            <div class="input-group mb-3 input-group-lg">
-              <input id="label_name" type="text" class="form-control border" placeholder="Name your label" required autocomplete="off">
-              <input type="hidden" id="label_todo_id" value="">
-            </div>
+              <div class="form-group mb-3 input-group-lg">
+                <input id="label_name" type="text" class="form-control border" maxlength="48" placeholder="Name your label" required autocomplete="off">
+                <small class="form-text text-muted">Max 48 characters</small>
+                <input type="hidden" id="label_todo_id" value="">
+              </div>
             <div class="label-container d-flex flex-row justify-content-between">
               <input class="red" type="radio" id="red" name="labelColor" value="red">
               <input class="orange" type="radio" id="orange" name="labelColor" value="orange">
