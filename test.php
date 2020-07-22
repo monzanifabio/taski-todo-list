@@ -79,7 +79,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <h2 class="title mb-2">Completed</h2>
         <span class="badge badge-secondary" id="count_completed"></span>
         <div class="filters float-right">
-          <p id="clear_all" onclick="deleteCompleted()" class="filters-select">Clear all</p>
+          <p id="clear_all" onclick="deleteCompleted()" class="filters-select"><i class="fas fa-trash-alt"></i> Clear all</p>
         </div>
       </div>
     </div>
