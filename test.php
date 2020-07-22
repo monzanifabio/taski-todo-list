@@ -28,17 +28,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <p class="small navbar-nav ml-auto"></p>
-    <div class="dropdown">
-      <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <?php echo htmlspecialchars($_SESSION["email"]); ?>
-      </a>
+    <div class="container">
+      <p class="small navbar-nav ml-auto"></p>
+      <div class="dropdown">
+        <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <?php echo htmlspecialchars($_SESSION["email"]); ?>
+        </a>
 
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-        <!-- <a class="dropdown-item btn btn-light" data-toggle="modal" data-target="#folderModal">New folder</a> -->
-        <a class="small dropdown-item" href="reset-password.php">Reset password</a>
-        <!-- <div class="dropdown-divider"></div> -->
-        <a class="small dropdown-item" href="logout.php">Logout</a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <!-- <a class="dropdown-item btn btn-light" data-toggle="modal" data-target="#folderModal">New folder</a> -->
+          <a class="small dropdown-item" href="reset-password.php">Reset password</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <a class="small dropdown-item" href="logout.php">Logout</a>
+        </div>
       </div>
     </div>
   </nav>
