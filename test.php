@@ -16,7 +16,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Welcome</title>
+    <title>Tasks</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendors/bootstrap-4.5.0/css/bootstrap.min.css">
     <!-- Fontawesome -->
