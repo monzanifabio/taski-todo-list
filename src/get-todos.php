@@ -25,7 +25,7 @@ $result=mysqli_query($link, $query)
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item'>";
     echo "<a onclick='checkTodo(this)' id='" . $row['todo_id'] . "' class='button-check'><i class='fas fa-check'></i></a>";
-    echo "<form class='todo-container'>";
+    echo "<div class='todo-container'>";
     echo "<a onclick='editTodo(this)' class='todo' id='" . $row['todo_id'] . "'>" . ucfirst($row['todo']) . "</a>";
     echo "<input id='" . $row['todo_id'] . "' class='form-control edit hidden' type='text' value='" . ucfirst($row['todo']) . "'>";
     echo "<button type='submit' id='" . $row['todo_id'] . "' class='btn btn-sm btn-primary hidden float-right' onclick='updateTodo(this)'><i class='fas fa-check'></i></button>";
@@ -35,7 +35,7 @@ $result=mysqli_query($link, $query)
     if ($row['labelName'] != "") {
       echo "<p class='label label-" . $row['labelColor'] . "'>" . $row['labelName'] . "<a onclick='deleteLabel(this)' class='remove-label' id='" . $row['todo_id'] . "'><span aria-hidden='true'>&times;</span></a></p>";
     }
-    echo "</form>";
+    echo "</div>";
     echo "<div class='options'>";
     echo "<a onclick='deleteTodo(this)' id='" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
     if ($row['labelName'] == "") {
