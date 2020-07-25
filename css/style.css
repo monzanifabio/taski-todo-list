@@ -241,6 +241,9 @@ textarea {
 .edit {
   background-color: #F4F5F7;
 }
+.icon-check {
+  font-family: 'Font Awesome\ 5 Free';
+}
 
 .btn-outline-light {
   color: #969696;

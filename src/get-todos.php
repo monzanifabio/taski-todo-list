@@ -25,17 +25,17 @@ $result=mysqli_query($link, $query)
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item'>";
     echo "<a onclick='checkTodo(this)' id='" . $row['todo_id'] . "' class='button-check'><i class='fas fa-check'></i></a>";
-    echo "<div class='todo-container'>";
+    echo "<form class='todo-container'>";
     echo "<a onclick='editTodo(this)' class='todo' id='" . $row['todo_id'] . "'>" . ucfirst($row['todo']) . "</a>";
     echo "<input id='" . $row['todo_id'] . "' class='form-control edit hidden' type='text' value='" . ucfirst($row['todo']) . "'>";
-    echo "<button id='" . $row['todo_id'] . "' class='btn btn-sm btn-primary hidden float-right' onclick='updateTodo(this)'><i class='fas fa-check'></i></button>";
+    echo "<button type='submit' id='" . $row['todo_id'] . "' class='btn btn-sm btn-primary hidden float-right' onclick='updateTodo(this)'><i class='fas fa-check'></i></button>";
     echo "<button id='" . $row['todo_id'] . "' class='btn btn-sm btn-outline-light hidden float-right' onclick='dismiss(this)'><i class='fas fa-times'></i></button>";
 
     // echo "<textarea onclick='editTodo(this)' class='todo' id='" . $row['todo_id'] . "' rows='1'>". $row['todo'] ."</textarea>";
     if ($row['labelName'] != "") {
       echo "<p class='label label-" . $row['labelColor'] . "'>" . $row['labelName'] . "<a onclick='deleteLabel(this)' class='remove-label' id='" . $row['todo_id'] . "'><span aria-hidden='true'>&times;</span></a></p>";
     }
-    echo "</div>";
+    echo "</form>";
     echo "<div class='options'>";
     echo "<a onclick='deleteTodo(this)' id='" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
     if ($row['labelName'] == "") {
