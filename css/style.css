@@ -129,6 +129,7 @@ a:not([href]):hover {
 }
 
 .todo {
+  width: 100%;
   font-family: 'Poppins', sans-serif;
   text-align: left;
   flex-grow: 10;
@@ -235,6 +236,14 @@ textarea {
 }
 
 .form-control {
+  border: none;
+}
+.edit {
+  background-color: #F4F5F7;
+}
+
+.btn-outline-light {
+  color: #969696;
   border: none;
 }
 .border {
