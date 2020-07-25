@@ -213,6 +213,17 @@ $(document).ready(function(){
   countTodos(); // Get the number of todos
   countCompleted(); // Get the number of completed todos
   clearAll();
+
+  // setTimeout(function(){
+  //   $('textarea').each(function() {
+  //       var taLineHeight = 44; // This should match the line-height in the CSS
+  //        var taHeight = this.scrollHeight; // Get the scroll height of the textarea
+  //        //ta.style.height = taHeight; // This line is optional, I included it so you can more easily count the lines in an expanded textarea
+  //        var numberOfLines = Math.floor(taHeight/taLineHeight);
+  //        this.style.height = taLineHeight * numberOfLines + "px";
+  //        alert( "there are " + numberOfLines + " lines in the text area");
+  //      });
+  // }, 3000);
   });
 
   // Show clear all button?
@@ -236,6 +247,7 @@ $(document).ready(function(){
           },
           success: function(response){
               $("#display_area").html(response);
+              $('.hidden').hide();
           }
       });
     };
@@ -467,16 +479,19 @@ $(document).ready(function(){
   //Edit todo into modal
   function editTodo(elem) {
     var todo_id = $(elem).attr('id');
-    var get_todo_text = $(elem).text();
-    $('#editModal').modal();
-    $('#todo_id').val(todo_id);
-    $('#editBox').val(get_todo_text);
+    $(elem).hide();
+    $("input[id=" + todo_id + "]").show();
+    $("button[id=" + todo_id + "]").show();
+    // var get_todo_text = $(elem).text();
+    // $('#editModal').modal();
+    // $('#todo_id').val(todo_id);
+    // $('#editBox').val(get_todo_text);
   };
 
   //Update todo
-  $('#save_todo_btn').click(function() {
-    var todo_id = $('#todo_id').val();
-    var updated_todo = $('#editBox').val();
+  function updateTodo(el){
+    var todo_id = $(el).attr('id');
+    var updated_todo = $("input[id=" + todo_id + "]").val();
     $.ajax({
       url: 'src/update-todo.php',
       type: 'POST',
@@ -485,12 +500,43 @@ $(document).ready(function(){
         'updated_todo': updated_todo,
       },
       success: function(response){
-        $('#editModal').modal('hide');
+        console.log(todo_id);
+        console.log(updated_todo);
+        // $('#editModal').modal('hide');
         refreshTodos();
+        $("input[id=" + todo_id + "]").hide();
+        $("button[id=" + todo_id + "]").hide();
       }
     });
     return false;
-  });
+  };
+
+  //Dismiss update
+  function dismiss(el) {
+    var todo_id = $(el).attr('id');
+    refreshTodos();
+    $("input[id=" + todo_id + "]").hide();
+    $("button[id=" + todo_id + "]").hide();
+  }
+
+  //Update todo
+  // $('#save_todo_btn').click(function() {
+  //   var todo_id = $('#todo_id').val();
+  //   var updated_todo = $('#editBox').val();
+  //   $.ajax({
+  //     url: 'src/update-todo.php',
+  //     type: 'POST',
+  //     data: {
+  //       'todo_id': todo_id,
+  //       'updated_todo': updated_todo,
+  //     },
+  //     success: function(response){
+  //       $('#editModal').modal('hide');
+  //       refreshTodos();
+  //     }
+  //   });
+  //   return false;
+  // });
 
   //Check todo to completed
   function checkTodo(elem) {
