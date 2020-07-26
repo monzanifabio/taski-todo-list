@@ -481,8 +481,12 @@ $(document).ready(function(){
   //Edit todo into modal
   function editTodo(elem) {
     var todo_id = $(elem).attr('id');
+    var todo_height = $(elem).outerHeight(true);
     $(elem).hide();
-    $("input[id=" + todo_id + "]").show();
+    console.log(todo_height);
+    var get_textarea = $("textarea[id=" + todo_id + "]");
+    get_textarea.outerHeight(todo_height+10);
+    get_textarea.show();
     $("button[id=" + todo_id + "]").show();
     // var get_todo_text = $(elem).text();
     // $('#editModal').modal();
@@ -493,7 +497,7 @@ $(document).ready(function(){
   //Update todo
   function updateTodo(el){
     var todo_id = $(el).attr('id');
-    var updated_todo = $("input[id=" + todo_id + "]").val();
+    var updated_todo = $("textarea[id=" + todo_id + "]").val();
     $.ajax({
       url: 'src/update-todo.php',
       type: 'POST',
@@ -506,7 +510,7 @@ $(document).ready(function(){
         console.log(updated_todo);
         // $('#editModal').modal('hide');
         refreshTodos();
-        $("input[id=" + todo_id + "]").hide();
+        $("textarea[id=" + todo_id + "]").hide();
         $("button[id=" + todo_id + "]").hide();
       }
     });

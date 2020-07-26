@@ -227,6 +227,7 @@ a:not([href]):hover {
 }
 
 textarea {
+  font-family: 'Poppins', sans-serif;
   padding: 10px;
   border: none;
   border-radius: 8px;
