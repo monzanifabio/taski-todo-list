@@ -60,6 +60,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <p class="dropdown-item" id="created_at desc" onclick="orderBy(this)">Recent</p>
               <p class="dropdown-item" id="created_at asc" onclick="orderBy(this)">Oldest</p>
               <p class="dropdown-item" id="todo" onclick="orderBy(this)">A/Z</p>
+              <p class="dropdown-item" id="labelName" onclick="orderBy(this)">Label name</p>
+              <p class="dropdown-item" id="labelColor" onclick="orderBy(this)">Label color</p>
             </div>
           </div>
         </div>
