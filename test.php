@@ -213,17 +213,6 @@ $(document).ready(function(){
   countTodos(); // Get the number of todos
   countCompleted(); // Get the number of completed todos
   clearAll();
-
-  // setTimeout(function(){
-  //   $('textarea').each(function() {
-  //       var taLineHeight = 44; // This should match the line-height in the CSS
-  //        var taHeight = this.scrollHeight; // Get the scroll height of the textarea
-  //        //ta.style.height = taHeight; // This line is optional, I included it so you can more easily count the lines in an expanded textarea
-  //        var numberOfLines = Math.floor(taHeight/taLineHeight);
-  //        this.style.height = taLineHeight * numberOfLines + "px";
-  //        alert( "there are " + numberOfLines + " lines in the text area");
-  //      });
-  // }, 3000);
   });
 
   // Show clear all button?
@@ -238,12 +227,14 @@ $(document).ready(function(){
 
   // Refresh todo list
   function refreshTodos() {
+    var savedFilter = localStorage.getItem("filter");
     var get_user_id = $('#user_id').val();
     $.ajax({
           type: "GET",
           url: "src/get-todos.php",
           data: {
             'user_id': get_user_id,
+            'filter': savedFilter,
           },
           success: function(response){
               $("#display_area").html(response);
@@ -317,6 +308,8 @@ $(document).ready(function(){
   function orderBy(elem) {
     var get_user_id = $('#user_id').val();
     var filter = $(elem).attr('id');
+    //Save the filtering in localstorage
+    var savedFilter = localStorage.setItem("filter", filter);
     $.ajax({
       url: 'src/get-todos.php',
       type: 'GET',
