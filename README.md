@@ -1,2 +1,2 @@
 # taski-todo-list
-A simple todo list manager
+A simple todo list manager with cool features

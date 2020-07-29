@@ -1,0 +1,381 @@
+html, body, .container {
+  height: 100%;
+}
+
+body {
+  color: unset;
+  background-color: #F4F5F7;
+}
+
+h1, h2, h3, h4, h5, h6, p, input {
+  font-family: 'Poppins', sans-serif;
+  color: none !important;
+  margin-bottom: 0;
+  text-decoration: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+}
+
+a:not([href]) {
+  color: #C4CFD8;
+  cursor: pointer;
+}
+
+a:not([href]):hover {
+  color: #969696;
+}
+
+.bg-light {
+  background-color: #F4F5F7 !important;
+}
+
+.navbar-light .navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.options {
+  width: 25%;
+  opacity: 0;
+  transition: opacity ease-out 1s;
+}
+
+.button-delete, .button-tag, .button-label {
+  height: 25px;
+  float: right;
+
+  font-size: 18px;
+  text-decoration: none;
+  line-height: inherit;
+  color: #C4CFD8;
+  cursor: pointer;
+}
+
+.todo-container:hover + .options, .options:hover {
+  opacity: 1;
+  transition: opacity ease-out 1s;
+}
+
+.badge-pill {
+  padding-right: .6rem;
+  padding-left: 0;
+}
+
+.button-delete:hover {
+  text-decoration: none;
+  color: #F2312A;
+}
+
+.button-tag:hover {
+  text-decoration: none;
+}
+
+.button-undo, .button-undo:hover {
+  font-size: 20px;
+  margin-right: 12px;
+  text-decoration: none;
+  color: #969696;
+}
+
+.button-check {
+  height: 26px;
+  min-width: 26px;
+
+  margin-right: 12px;
+
+  border: 2px solid #C4CFD8;
+  border-radius: 50%;
+}
+
+.button-check:hover {
+  background-color: #56DAA2;
+  border-color: #56DAA2;
+}
+
+.text-crossed {
+  color: #C4CFD8;
+  text-decoration: line-through !important;
+  display: inline;
+}
+
+.empty {
+  margin: 30px;
+  text-align: center;
+  color: #969696;
+}
+
+.input-group-lg {
+  margin: 15px 0 15px 0;
+}
+
+.list-group {
+  border-radius: 1.5rem;
+}
+
+.list-group-item:first-child {
+  padding-top: 1.2rem
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border: none;
+}
+
+.todo {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+  flex-grow: 10;
+  cursor: pointer;
+  color: #515E69 !important;
+}
+
+.title {
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.completed {
+  justify-content: unset;
+  background-color: #E8EDF1;
+  color: #969696;
+}
+
+.fa-check {
+  padding-left: 3px;
+  color: #FFF;
+}
+.dropdown-item {
+  padding: 4px 10px;
+}
+.dropdown-item:hover {
+  color: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dropdown-left.show {
+  transform: translate3d(-260px, -10px, 0px) !important;
+}
+.dropdown-menu-right.show {
+  display: list-item !important;
+}
+.dropdown-menu {
+  float: none;
+  min-width: auto;
+  text-align: right;
+  -webkit-box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.1);
+}
+.dropdown-menu.show {
+  border: none;
+  display: inline-flex;
+}
+
+.tag-red, .tag-red:hover {
+  color: #F2928C;
+}
+.tag-orange, .tag-orange:hover {
+  color: #FDC654;
+}
+.tag-yellow, .tag-yellow:hover {
+  color: #FFEC53;
+}
+.tag-green, .tag-green:hover {
+  color: #BDEC4F;
+}
+.tag-blue, .tag-blue:hover {
+  color: #98D4FD;
+}
+.tag-purple, .tag-purple:hover {
+  color: #E5BAFA;
+}
+.tag-grey, .tag-grey:hover {
+  color: #C4CFD8;
+}
+
+.filters {
+  margin: 8px 0px;
+}
+.filters-text {
+  font-size: 12px;
+  color: #969696;
+}
+.filters-select {
+  color: #969696;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+.filters-select:focus {
+  outline: none;
+}
+.filters-select:hover {
+  color: #969696;
+  cursor: pointer;
+}
+
+textarea {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #F4F5F7;
+  outline: none;
+  resize: none;
+}
+
+.form-control {
+  border: none;
+}
+.edit {
+  background-color: #F4F5F7;
+}
+.icon-check {
+  font-family: 'Font Awesome\ 5 Free';
+}
+
+.btn-outline-light {
+  color: #969696;
+  border: none;
+}
+.border {
+  border: unset;
+}
+.form-todo {
+  width: 100%;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+.modal-content {
+  border: none;
+  border-radius: 12px;
+}
+
+::placeholder {
+  font-family: 'Poppins', sans-serif;
+  color: #515E69;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.help-block {
+  font-size: 12px;
+  color: #EB4868;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  /* background-color only for content */
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.red {
+  background-color: #F2928C;
+}
+.label-red {
+  background-color: #F2928C;
+  color: #920000;
+}
+
+.orange {
+  background-color: #FDC654;
+}
+.label-orange {
+  background-color: #FDC654;
+  color: #a97200;
+}
+
+.yellow {
+  background-color: #FFEC53;
+}
+.label-yellow {
+  background-color: #FFEC53;
+  color: #af9b00;
+}
+
+.green {
+  background-color: #BDEC4F;
+}
+.label-green {
+  background-color: #BDEC4F;
+  color: #659000;
+}
+
+.blue {
+  background-color: #98D4FD;
+}
+.label-blue {
+  background-color: #98D4FD;
+  color: #2b89ca;
+}
+
+.purple {
+  background-color: #E5BAFA;
+}
+.label-purple {
+  background-color: #E5BAFA;
+  color: #9e5fbd;
+}
+
+.gray {
+  background-color: #C8C8C8;
+}
+.label-gray {
+  background-color: #C8C8C8;
+  color: #828282;
+}
+
+input[type="radio"]:focus {
+  outline: none;
+  transform: scale(1);
+}
+
+input[type="radio"]:checked {
+  outline: none;
+  opacity: 1;
+  transform: scale(1.2);
+  transition: cubic-bezier(.2,.71,.53,1.77) .2s;
+}
+
+.todo-container {
+  width: 100%;
+}
+
+.label {
+  width: fit-content;
+  margin-top: .4rem;
+  font-size: .6rem;
+  font-weight: 800;
+  padding: .1rem .1rem .1rem .5rem;
+  border-radius: 5rem;
+}
+
+.remove-label {
+  padding: .5rem;
+  color: inherit !important;
+  font-size: .6rem;
+  font-weight: 800;
+  opacity: .5;
+}
