@@ -174,6 +174,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
         <form id="labelForm">
           <div class="modal-body">
+            <div id="display_labels"></div>
               <div class="form-group mb-3 input-group-lg">
                 <input id="label_name" type="text" class="form-control border" maxlength="48" placeholder="Name your label" required autocomplete="off">
                 <span id="label_warning" class="help-block"></span>
