@@ -6,6 +6,7 @@ $(document).ready(function(){
   countTodos(); // Get the number of todos
   countCompleted(); // Get the number of completed todos
   clearAll();
+  recentLabels();
   });
 
   // Show clear all button?
@@ -16,6 +17,21 @@ $(document).ready(function(){
     } else {
       $('#clear_all').show();
     }
+  };
+
+  //Display used labels
+  function recentLabels() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "src/get-labels.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#display_labels").html(response);
+          }
+      });
   };
 
   // Refresh todo list
@@ -32,6 +48,7 @@ $(document).ready(function(){
           success: function(response){
               $("#display_area").html(response);
               $('.hidden').hide();
+              recentLabels();
           }
       });
     };
@@ -229,6 +246,15 @@ $(document).ready(function(){
       }
     });
   };
+
+  //Copy label
+  function copyLabel(elem) {
+    var label = $(elem).text();
+    var color = $(elem).attr('id');
+    $('#label_name').val(label);
+    $('#gray').prop('checked', false);
+    $('.' + color).prop('checked', true);
+  }
 
   // Delete folder from database
   function deleteFolder(elem) {
