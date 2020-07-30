@@ -296,7 +296,7 @@ input[type="radio"] {
 }
 .label-red {
   background-color: #F2928C;
-  color: #920000;
+  color: #920000 !important;
 }
 
 .orange {
@@ -304,7 +304,7 @@ input[type="radio"] {
 }
 .label-orange {
   background-color: #FDC654;
-  color: #a97200;
+  color: #a97200 !important;
 }
 
 .yellow {
@@ -312,7 +312,7 @@ input[type="radio"] {
 }
 .label-yellow {
   background-color: #FFEC53;
-  color: #af9b00;
+  color: #af9b00 !important;
 }
 
 .green {
@@ -320,7 +320,7 @@ input[type="radio"] {
 }
 .label-green {
   background-color: #BDEC4F;
-  color: #659000;
+  color: #659000 !important;
 }
 
 .blue {
@@ -328,7 +328,7 @@ input[type="radio"] {
 }
 .label-blue {
   background-color: #98D4FD;
-  color: #2b89ca;
+  color: #2b89ca !important;
 }
 
 .purple {
@@ -336,7 +336,7 @@ input[type="radio"] {
 }
 .label-purple {
   background-color: #E5BAFA;
-  color: #9e5fbd;
+  color: #9e5fbd !important;
 }
 
 .gray {
@@ -344,7 +344,7 @@ input[type="radio"] {
 }
 .label-gray {
   background-color: #C8C8C8;
-  color: #828282;
+  color: #828282 !important;
 }
 
 input[type="radio"]:focus {
@@ -363,6 +363,11 @@ input[type="radio"]:checked {
   width: 100%;
 }
 
+#display_labels {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
 .label {
   width: fit-content;
   margin-top: .4rem;
@@ -370,6 +375,12 @@ input[type="radio"]:checked {
   font-weight: 800;
   padding: .1rem .1rem .1rem .5rem;
   border-radius: 5rem;
+}
+
+.label-lg {
+  font-size: 1rem;
+  padding: .1rem .5rem .1rem .5rem;
+  margin: .4rem .2rem 0 .2rem;
 }
 
 .remove-label {
