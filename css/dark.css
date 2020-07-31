@@ -1,0 +1,37 @@
+body, .bg-light {
+  background-color: #212529;
+}
+
+a:not([href]) {
+  color: #343a40;
+}
+
+.text-crossed, .fa-check {
+  color: #343a40;
+}
+
+.form-control, .list-group-item {
+  background-color: #343a40;
+}
+
+.button-check {
+  border-color: #6c757d;
+}
+
+.todo {
+  color: #969696;
+}
+
+h2 {
+  color: #dee2e6;
+}
+
+.completed {
+  background-color: #1a1d21;
+}
+
+.btn-light {
+  color: #6c757d;
+  background-color: #212529;
+  border-color: #343a40;
+}
