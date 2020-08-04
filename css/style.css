@@ -27,6 +27,11 @@ a:not([href]):hover {
   color: #969696;
 }
 
+.registration {
+  font-size: 12rem;
+  color: #56DAA2;
+}
+
 .bg-light {
   background-color: #F4F5F7 !important;
 }
