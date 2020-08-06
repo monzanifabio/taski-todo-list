@@ -1,5 +1,12 @@
-html, body, .container {
+html, body {
   height: 100%;
+}
+
+.container {
+  height: 100vh;
+  min-width: 100vw;
+  overflow-y: scroll;
+  margin-top: 60px;
 }
 
 body {
@@ -47,6 +54,64 @@ a:not([href]):hover {
   width: 25%;
   opacity: 0;
   transition: opacity ease-out 1s;
+}
+
+/* -----------------------------------------------------------------------------
+SIDEPANEL
+------------------------------------------------------------------------------*/
+
+#wrapper {
+   overflow-x: hidden;
+}
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -16rem;
+  margin-top: 52px;
+  padding-left: 15px;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#menu-toggle {
+  display: block;
+  border-radius: 50%;
+  color: #969696;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  .container {
+    min-width: 0;
+    width: 100%;
+  }
+
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
 }
 
 .button-delete, .button-tag, .button-label {
