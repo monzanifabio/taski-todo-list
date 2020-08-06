@@ -9,6 +9,12 @@ html, body {
   margin-top: 60px;
 }
 
+@media (min-width: 768px) {
+  .container {
+    margin-top: 16px;
+  }
+}
+
 body {
   color: unset;
   background-color: #F4F5F7;
@@ -85,6 +91,12 @@ SIDEPANEL
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
+  width: 15rem;
+}
+
+.sidebar-heading {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #sidebar-wrapper .list-group {
