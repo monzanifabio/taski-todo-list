@@ -32,10 +32,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <!-- Sidebar -->
     <div class="bg-light" id="sidebar-wrapper">
       <div class="sidebar-heading"><?php echo htmlspecialchars($_SESSION["email"]); ?></div>
-      <div class="list-group list-group-flush">
-        <!-- <div class="dropdown">
+      <div class="list-group list-group-flush" id="display_folders"></div>
+        <div class="dropdown">
           <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php //echo htmlspecialchars($_SESSION["email"]); ?>
+            <?php echo htmlspecialchars($_SESSION["email"]); ?>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
@@ -44,14 +44,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="dropdown-divider"></div>
             <a class="small dropdown-item" href="logout.php">Logout</a>
           </div>
-        </div> -->
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-      </div>
+        </div>
+        <a class="sidebar-heading" data-toggle="modal" data-target="#folderModal"><i class="fas fa-plus-square"></i> New folder</a>
     </div>
 
     <!-- Navbar -->
@@ -90,9 +84,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
       </div>
 
-      <div class="row mt-4" id="display_folders">
+      <!-- <div class="row mt-4" id="display_folders"> -->
 
-      </div>
+      <!-- </div> -->
 
       <div class="row mt-4">
         <div class="col-md">
@@ -142,7 +136,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <form>
           <div class="modal-body">
             <div class="input-group mb-3 input-group-lg">
-              <input id="folder_name" type="text" class="form-control border" placeholder="Name your folder" required autocomplete="off">
+              <input id="folder_name" type="text" class="form-control border" placeholder="Name your folder" required autocomplete="off" maxlength="16">
             </div>
           </div>
           <div class="modal-footer">

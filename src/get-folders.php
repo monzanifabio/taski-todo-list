@@ -23,19 +23,19 @@ $result=mysqli_query($link, $query)
   } else {
   //processing results
   while($row = mysqli_fetch_assoc($result)){
-    echo "<div class='col-md-12'>";
-    echo "<h2 class='title mb-2'>" . ucfirst($row['folder_name']) . "</h2>";
+    echo "<li class='list-group-item list-group-item-action bg-light'>";
+    echo "<p class='mb-2 pointer'><i class='fas fa-folder'></i> " . ucfirst($row['folder_name']) . "</p>";
     echo "<span class='badge badge-secondary'></span>";
-    echo "<div class='filters float-right'>";
+    echo "<div class='float-right'>";
     echo "<div class='dropdown d-inline'>";
-    echo "<button class='filters-select dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-    echo "Options</button>";
+    echo "<button class='filters-select' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+    echo "<i class='fas fa-ellipsis-v'></i></button>";
     echo "<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>";
     echo "<p class='dropdown-item' id='" . $row['id'] . "' onclick='deleteFolder(this)'>Delete</p>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
-    echo "</div>";
+    echo "</li>";
   }
 }
  ?>

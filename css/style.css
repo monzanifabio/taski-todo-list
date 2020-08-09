@@ -40,6 +40,10 @@ a:not([href]):hover {
   color: #969696;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .registration {
   font-size: 12rem;
   color: #56DAA2;
@@ -235,6 +239,12 @@ SIDEPANEL
   padding-left: 3px;
   color: #FFF;
 }
+
+.fa-ellipsis-v {
+  font-size: 16px;
+  color: #C4CFD8;
+}
+
 .dropdown-item {
   padding: 4px 10px;
 }
