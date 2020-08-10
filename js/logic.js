@@ -53,6 +53,28 @@ $(document).ready(function(){
       });
     };
 
+  // Get todos in folder selected
+  function getTodosFolder(elem) {
+    var folderName = $(elem).text();
+    alert(folderName); //remove
+    //Change the title to the selected folder name
+    var title = $('#folderTitle').text(folderName);
+    var get_user_id = $('#user_id').val();
+    var get_folder_id = $(elem).attr('id');
+    alert(get_folder_id); //remove
+    $.ajax({
+          type: "GET",
+          url: "src/get-todos-folder.php",
+          data: {
+            'folder_id': get_folder_id,
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#display_area").html(response);
+          }
+      });
+    };
+
   //Refresh folders
   function refreshFolders() {
     var get_user_id = $('#user_id').val();

@@ -24,7 +24,7 @@ $result=mysqli_query($link, $query)
   //processing results
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item list-group-item-action bg-light'>";
-    echo "<p class='mb-2 pointer'><i class='fas fa-folder'></i> " . ucfirst($row['folder_name']) . "</p>";
+    echo "<p id='" . $row['id'] . "' class='mb-2 pointer' onclick='getTodosFolder(this)'><i class='fas fa-folder'></i> " . ucfirst($row['folder_name']) . "</p>";
     echo "<span class='badge badge-secondary'></span>";
     echo "<div class='float-right'>";
     echo "<div class='dropdown d-inline'>";
