@@ -188,7 +188,6 @@ $(document).ready(function(){
     var user_id = $('#user_id').val();
     var todo = $('#todo_text').val();
     var folder_id = $('[name="folderTitle"]').attr('id');
-    alert(folder_id);
     $.ajax({
       url: 'src/add-todo.php',
       type: 'POST',
@@ -201,6 +200,7 @@ $(document).ready(function(){
         $('#todo_text').val('');
         refreshTodos();
         countTodos();
+        refreshFolders();
       }
     });
     return false;
@@ -277,6 +277,7 @@ $(document).ready(function(){
       },
       success: function(response){
         refreshTodos();
+        refreshFolders();
         countTodos();
       }
     });
