@@ -33,9 +33,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="bg-light" id="sidebar-wrapper">
       <div class="sidebar-heading"><?php echo htmlspecialchars($_SESSION["email"]); ?></div>
       <div class="list-group list-group-flush">
-        <li class="list-group-item list-group-item-action bg-light">
-          <span class="badge badge-secondary"></span>
-        </li>
         <div id="display_folders"></div>
       </div>
         <div class="dropdown">
