@@ -3,8 +3,13 @@
 require_once "../config/config.php";
 
 $user_id = $_GET['user_id'];
+$folder_id = $_GET['folder_id'];
 
-$query = "SELECT * FROM todos WHERE completed = '0' AND user_id = $user_id";
+if (empty($folder_id)) {
+  $query = "SELECT * FROM todos WHERE completed = '0' AND user_id = $user_id";
+} else {
+  $query = "SELECT * FROM todos WHERE completed = '0' AND user_id = $user_id AND folder_id = $folder_id";
+}
 $result = mysqli_query($link, $query)
   or die("Failed to load data.");
 

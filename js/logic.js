@@ -75,6 +75,7 @@ $(document).ready(function(){
           success: function(response){
               $("#display_area").html(response);
               $('.hidden').hide();
+              countTodos();
           }
       });
     };
@@ -112,11 +113,13 @@ $(document).ready(function(){
   //Count todos
   function countTodos() {
     var get_user_id = $('#user_id').val();
+    var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
           type: "GET",
           url: "src/count-todo.php",
           data: {
             'user_id': get_user_id,
+            'folder_id': folder_id,
           },
           success: function(response){
               $("#count_todos").html(response);
