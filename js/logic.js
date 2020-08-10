@@ -79,13 +79,11 @@ $(document).ready(function(){
   // Get todos in folder selected
   function getTodosFolder(elem) {
     var folderName = $(elem).text();
-    alert(folderName); //remove
     //Change the title to the selected folder name
     var title = $('[name="folderTitle"]').text(folderName);
     var get_user_id = $('#user_id').val();
     var get_folder_id = $(elem).attr('id');
     title.attr('id',get_folder_id);
-    alert(get_folder_id); //remove
     $.ajax({
           type: "GET",
           url: "src/get-todos-folder.php",
