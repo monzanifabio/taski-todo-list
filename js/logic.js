@@ -166,6 +166,7 @@ $(document).ready(function(){
   function orderBy(elem) {
     var get_user_id = $('#user_id').val();
     var filter = $(elem).attr('id');
+    var folder_id = $('[name="folderTitle"]').attr('id');
     //Save the filtering in localstorage
     var savedFilter = localStorage.setItem("filter", filter);
     $.ajax({
@@ -174,6 +175,7 @@ $(document).ready(function(){
       data: {
         'user_id': get_user_id,
         'filter': filter,
+        'folder_id': folder_id,
       },
       success: function(response){
         $("#display_area").html(response);
