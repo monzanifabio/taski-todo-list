@@ -9,7 +9,7 @@ $(document).ready(function(){
   recentLabels();
   });
 
-  // Show clear all button?
+  // Show clear all button
   function clearAll() {
     var todos_completed = $('#count_completed').text();
     if (todos_completed == 0) {
@@ -33,6 +33,27 @@ $(document).ready(function(){
           }
       });
   };
+
+  //Get all todos
+  function getAllTodos() {
+    var savedFilter = localStorage.getItem("filter");
+    var get_user_id = $('#user_id').val();
+    var folder_title = $('[name="folderTitle"]').text('Tasks').attr('id', '');
+    $.ajax({
+          type: "GET",
+          url: "src/get-todos.php",
+          data: {
+            'user_id': get_user_id,
+            'filter': savedFilter,
+          },
+          success: function(response){
+              $("#display_area").html(response);
+              $('.hidden').hide();
+              recentLabels();
+              countTodos();
+          }
+      });
+    };
 
   // Refresh todo list
   function refreshTodos() {

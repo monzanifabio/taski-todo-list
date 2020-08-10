@@ -19,7 +19,7 @@ $result=mysqli_query($link, $query)
   // If the number of retrieved rows is equal to 0 then print Nothing otherwise execute the loop
   if ($isempty == 0) {
     echo "<div class='empty'>";
-    echo "<h4>🎉 You don't have any task</h4>";
+    echo "<h4>📭 This folder is empty</h4>";
     echo "</div>";
   } else {
   //processing results

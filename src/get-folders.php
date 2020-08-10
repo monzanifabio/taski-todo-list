@@ -21,6 +21,9 @@ $result=mysqli_query($link, $query)
     // echo "<h4>🎉 You don't have any task</h4>";
     // echo "</div>";
   } else {
+    echo "<li class='list-group-item list-group-item-action bg-light'>";
+    echo "<p class='mb-2 pointer' onclick='getAllTodos()'><i class='fas fa-folder'></i> All</p>";
+    echo "</li>";
   //processing results
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item list-group-item-action bg-light'>";
