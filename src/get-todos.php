@@ -4,13 +4,19 @@ require_once "../config/config.php";
 
 $user_id = $_GET['user_id'];
 $filter = $_GET['filter'];
+$folder_id = $_GET['folder_id'];
 
 if (empty($filter)) {
   $filter = "created_at DESC";
 }
 
+if (empty($folder_id)) {
+  $query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0' ORDER BY $filter" ;
+} else {
+  $query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0' AND folder_id = $folder_id ORDER BY $filter" ;
+}
+
 //running SQL query
-$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '0' ORDER BY $filter" ;
 $result=mysqli_query($link, $query)
   or die("Failed to load data.");
   // Store the number of retrieved rows

@@ -38,12 +38,14 @@ $(document).ready(function(){
   function refreshTodos() {
     var savedFilter = localStorage.getItem("filter");
     var get_user_id = $('#user_id').val();
+    var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
           type: "GET",
           url: "src/get-todos.php",
           data: {
             'user_id': get_user_id,
             'filter': savedFilter,
+            'folder_id': folder_id,
           },
           success: function(response){
               $("#display_area").html(response);
@@ -58,9 +60,10 @@ $(document).ready(function(){
     var folderName = $(elem).text();
     alert(folderName); //remove
     //Change the title to the selected folder name
-    var title = $('#folderTitle').text(folderName);
+    var title = $('[name="folderTitle"]').text(folderName);
     var get_user_id = $('#user_id').val();
     var get_folder_id = $(elem).attr('id');
+    title.attr('id',get_folder_id);
     alert(get_folder_id); //remove
     $.ajax({
           type: "GET",
@@ -161,12 +164,14 @@ $(document).ready(function(){
   $('#add_todo_btn').click(function(){
     var user_id = $('#user_id').val();
     var todo = $('#todo_text').val();
+    var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
       url: 'src/add-todo.php',
       type: 'POST',
       data: {
         'user_id': user_id,
         'todo': todo,
+        'folder_id': folder_id,
       },
       success: function(response){
         $('#todo_text').val('');
