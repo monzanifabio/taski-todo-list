@@ -60,7 +60,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <div class="row">
         <div class="col-md">
-          <h2 id="" class="title mb-2" name="folderTitle">Tasks</h2>
+          <h2 id="0" class="title mb-2" name="folderTitle">Tasks</h2>
           <span class="badge badge-secondary" id="count_todos"></span>
           <div class="filters float-right">
             <div class="dropdown d-inline">

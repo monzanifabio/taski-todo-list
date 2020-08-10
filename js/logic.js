@@ -38,7 +38,7 @@ $(document).ready(function(){
   function getAllTodos() {
     var savedFilter = localStorage.getItem("filter");
     var get_user_id = $('#user_id').val();
-    var folder_title = $('[name="folderTitle"]').text('Tasks').attr('id', '');
+    var folder_title = $('[name="folderTitle"]').text('Tasks').attr('id', '0');
     $.ajax({
           type: "GET",
           url: "src/get-todos.php",
@@ -188,6 +188,7 @@ $(document).ready(function(){
     var user_id = $('#user_id').val();
     var todo = $('#todo_text').val();
     var folder_id = $('[name="folderTitle"]').attr('id');
+    alert(folder_id);
     $.ajax({
       url: 'src/add-todo.php',
       type: 'POST',
