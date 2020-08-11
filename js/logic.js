@@ -374,7 +374,6 @@ $(document).ready(function(){
     var todo_id = $(elem).attr('id');
     var todo_height = $(elem).outerHeight(true);
     $(elem).hide();
-    console.log(todo_height);
     var get_textarea = $("textarea[id=" + todo_id + "]");
     get_textarea.outerHeight(todo_height+10);
     get_textarea.show();
@@ -397,9 +396,6 @@ $(document).ready(function(){
         'updated_todo': updated_todo,
       },
       success: function(response){
-        console.log(todo_id);
-        console.log(updated_todo);
-        // $('#editModal').modal('hide');
         refreshTodos();
         $("textarea[id=" + todo_id + "]").hide();
         $("button[id=" + todo_id + "]").hide();

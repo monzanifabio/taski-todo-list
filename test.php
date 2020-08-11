@@ -51,7 +51,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <a class="small dropdown-item" href="logout.php">Logout</a>
           </div>
         </div>
-        <a class="sidebar-heading" data-toggle="modal" data-target="#folderModal"><i class="fas fa-plus-square"></i> New folder</a>
+        <a class="sidebar-heading font-weight-light" data-toggle="modal" data-target="#folderModal"><img src="img/plus.svg" height="25"> New folder</a>
     </div>
 
     <!-- Navbar -->
