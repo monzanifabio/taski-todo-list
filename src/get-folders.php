@@ -22,13 +22,14 @@ $result=mysqli_query($link, $query)
     // echo "</div>";
   } else {
     echo "<li class='list-group-item list-group-item-action bg-light'>";
-    echo "<p class='mb-2 pointer' onclick='getAllTodos()'><i class='fas fa-folder'></i> All</p>";
+    echo "<p id='0' class='mb-2 pointer' onclick='getAllTodos()'><i class='fas fa-folder'></i> All</p>";
     echo "</li>";
   //processing results
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item list-group-item-action bg-light align-items-baseline'>";
-    echo "<p id='" . $row['id'] . "' class='mb-2 pointer' onclick='getTodosFolder(this)'><i class='fas fa-folder'></i> " . ucfirst($row['folder_name']) . "</p>";
-    echo "<span class='badge badge-secondary'>";
+    echo "<p id='" . $row['id'] . "' class='mb-2 pointer font-weight-light' onclick='getTodosFolder(this)'><i class='fas fa-folder'></i> " . ucfirst($row['folder_name']) . "</p>";
+    echo "<div class='float-right'>";
+    echo "<span class='badge badge-light font-weight-light'>";
 
     $folder_id = $row['id'];
 
@@ -42,7 +43,7 @@ $result=mysqli_query($link, $query)
     echo $count;
 
     echo "</span>";
-    echo "<div class='float-right'>";
+
     echo "<div class='dropdown d-inline'>";
     echo "<button class='filters-select' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
     echo "<i class='fas fa-ellipsis-v'></i></button>";

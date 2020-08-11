@@ -7,6 +7,7 @@ $(document).ready(function(){
   countCompleted(); // Get the number of completed todos
   clearAll();
   recentLabels();
+  //labelList();
   });
 
   // Show clear all button
@@ -34,11 +35,29 @@ $(document).ready(function(){
       });
   };
 
+  //Display list of labels
+  function labelList() {
+    var get_user_id = $('#user_id').val();
+    $.ajax({
+          type: "GET",
+          url: "src/get-labels-list.php",
+          data: {
+            'user_id': get_user_id,
+          },
+          success: function(response){
+              $("#display_labels_list").html(response);
+          }
+      });
+  };
+
   //Get all todos
   function getAllTodos() {
-    var savedFilter = localStorage.getItem("filter");
+    localStorage.setItem('folder-name', 'Tasks')
+    var savedFilter = localStorage.setItem("folder", 0);
     var get_user_id = $('#user_id').val();
     var folder_title = $('[name="folderTitle"]').text('Tasks').attr('id', '0');
+    var savedFilter = localStorage.getItem("filter");
+
     $.ajax({
           type: "GET",
           url: "src/get-todos.php",
@@ -57,6 +76,9 @@ $(document).ready(function(){
 
   // Refresh todo list
   function refreshTodos() {
+    var saveFolderName = localStorage.getItem('folder-name');
+    var folder_title = $('[name="folderTitle"]').text(saveFolderName);
+    var savedFolder = localStorage.getItem('folder');
     var savedFilter = localStorage.getItem("filter");
     var get_user_id = $('#user_id').val();
     var folder_id = $('[name="folderTitle"]').attr('id');
@@ -66,7 +88,7 @@ $(document).ready(function(){
           data: {
             'user_id': get_user_id,
             'filter': savedFilter,
-            'folder_id': folder_id,
+            'folder_id': savedFolder,
           },
           success: function(response){
               $("#display_area").html(response);
@@ -83,6 +105,8 @@ $(document).ready(function(){
     var title = $('[name="folderTitle"]').text(folderName);
     var get_user_id = $('#user_id').val();
     var get_folder_id = $(elem).attr('id');
+    var savedFolder = localStorage.setItem("folder", get_folder_id);
+    localStorage.setItem('folder-name', folderName);
     title.attr('id',get_folder_id);
     $.ajax({
           type: "GET",
@@ -132,13 +156,14 @@ $(document).ready(function(){
   //Count todos
   function countTodos() {
     var get_user_id = $('#user_id').val();
+    var savedFolder = localStorage.getItem('folder');
     var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
           type: "GET",
           url: "src/count-todo.php",
           data: {
             'user_id': get_user_id,
-            'folder_id': folder_id,
+            'folder_id': savedFolder,
           },
           success: function(response){
               $("#count_todos").html(response);
