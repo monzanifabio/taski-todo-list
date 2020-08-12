@@ -142,7 +142,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <form>
           <div class="modal-body">
             <div class="input-group mb-3 input-group-lg">
-              <input id="folder_name" type="text" class="form-control border" placeholder="Name your folder" required autocomplete="off" maxlength="16">
+              <input id="folder_name" type="text" class="form-control border" placeholder="Name your folder" required autocomplete="off" maxlength="12">
             </div>
           </div>
           <div class="modal-footer">
@@ -153,6 +153,33 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </div>
     </div>
   </div>
+
+  <!-- Rename folder Modal -->
+  <div class="modal fade" id="renameFolderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Rename folder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="input-group mb-3 input-group-lg">
+              <input id="selected_folder_name" type="text" class="form-control border" placeholder="New folder name" required autocomplete="off" maxlength="12">
+              <input type="hidden" id="folder_id" value="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" class="btn btn-primary" value="Create" id="rename_folder_btn">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Label Modal -->
   <div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

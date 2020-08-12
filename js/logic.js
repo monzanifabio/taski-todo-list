@@ -255,12 +255,43 @@ $(document).ready(function(){
     return false;
   });
 
+  //Rename folder
+  function renameFolder(elem) {
+    $('#folder_id').val($(elem).attr('id'));
+    $('#renameFolderModal').modal();
+  };
+
+  $('#rename_folder_btn').click(function() {
+    var folder_id = $('#folder_id').val();
+    console.log(folder_id);
+    var newFolderName = $('#selected_folder_name').val()
+    console.log(newFolderName);
+    if (newFolderName == "") {
+      // $('#folder_warning').text("You need to add a name for your folder");
+    } else {
+      $.ajax({
+        url: 'src/rename-folder.php',
+        type: 'POST',
+        data: {
+          'folder_id': folder_id,
+          'folder_name': newFolderName,
+        },
+        success: function(response){
+          $('#selected_folder_name').val('');
+          $('#renameFolderModal').modal('hide');
+          refreshFolders();
+        }
+      });
+      return false;
+    };
+  });
+
   //Create label modal launcher
   function labelTodo(elem) {
     var todo_id = $(elem).attr('id');
     $('#labelModal').modal();
     $('#label_todo_id').val(todo_id);
-  }
+  };
 
   //Create label
   $('#create_label').click(function() {

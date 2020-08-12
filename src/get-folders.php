@@ -49,6 +49,7 @@ $result=mysqli_query($link, $query)
     echo "<i class='fas fa-ellipsis-v'></i></button>";
     echo "<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>";
     echo "<p class='dropdown-item' id='" . $row['id'] . "' onclick='deleteFolder(this)'>Delete</p>";
+    echo "<p class='dropdown-item' id='" . $row['id'] . "' onclick='renameFolder(this)'>Rename</p>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
