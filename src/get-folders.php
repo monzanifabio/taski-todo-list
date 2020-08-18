@@ -22,12 +22,12 @@ $result=mysqli_query($link, $query)
     // echo "</div>";
   } else {
     echo "<li class='list-group-item list-group-item-action bg-light'>";
-    echo "<p id='0' class='mb-2 pointer font-weight-light' onclick='getAllTodos()'><img class='align-bottom' src='img/folder.svg' height='25'> All</p>";
+    echo "<p id='0' class='mb-2 pointer font-weight-light' onclick='getAllTodos()'><img class='align-bottom' src='img/folder-alt.svg' height='25'> All</p>";
     echo "</li>";
   //processing results
   while($row = mysqli_fetch_assoc($result)){
     echo "<li class='list-group-item list-group-item-action bg-light align-items-baseline'>";
-    echo "<p id='" . $row['id'] . "' class='mb-2 pointer font-weight-light' onclick='getTodosFolder(this)'><img class='align-bottom' src='img/folder.svg' height='25'> " . ucfirst($row['folder_name']) . "</p>";
+    echo "<p id='" . $row['id'] . "' class='mb-2 pointer font-weight-light' onclick='getTodosFolder(this)'><img class='align-bottom' src='img/folder-alt.svg' height='25'> " . ucfirst($row['folder_name']) . "</p>";
     echo "<div class='float-right'>";
     echo "<span class='badge badge-light font-weight-light'>";
 
