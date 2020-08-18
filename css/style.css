@@ -57,11 +57,20 @@ a:not([href]):hover {
   justify-content: left;
 }
 
+.fixed-bottom {
+  position: sticky;
+}
+
 .navbar-light .navbar-toggler {
   border: none;
 }
 .navbar-toggler:focus {
   outline: none;
+}
+
+.input-shadow {
+  border-radius: .3rem;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
 }
 
 .options {

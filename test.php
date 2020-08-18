@@ -116,9 +116,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <div class="row mt-5 mb-5">
       </div>
 
-      <nav class="navbar fixed-bottom navbar-light bg-light">
+      <nav class="navbar fixed-bottom">
         <form class="form-todo">
-          <div class="input-group mb-3 input-group-lg">
+          <div class="input-group mb-3 input-group-lg input-shadow">
             <input id="todo_text" type="text" name="todo" class="form-control" placeholder="Type something..." aria-describedby="button-addon2" required autofocus autocomplete="off">
             <input id="user_id" type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
             <div class="input-group-append">
