@@ -31,7 +31,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <!-- Sidebar -->
     <div class="bg-light" id="sidebar-wrapper">
-      <div class="sidebar-heading"><?php echo htmlspecialchars($_SESSION["email"]); ?></div>
       <div class="list-group list-group-flush">
         <div id="display_folders"></div>
       </div>
@@ -39,19 +38,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <div class="list-group list-group-flush">
         <div id="display_labels_list"></div>
       </div>
-        <div class="dropdown">
-          <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo htmlspecialchars($_SESSION["email"]); ?>
-          </a>
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item btn btn-light" data-toggle="modal" data-target="#folderModal">New folder</a>
-            <a class="small dropdown-item" href="reset-password.php">Reset password</a>
-            <div class="dropdown-divider"></div>
-            <a class="small dropdown-item" href="logout.php">Logout</a>
-          </div>
-        </div>
         <a class="sidebar-heading font-weight-light" data-toggle="modal" data-target="#folderModal"><img src="img/plus.svg" height="25"> New folder</a>
+
+        <nav class="navbar fixed-bottom">
+          <div class="dropdown">
+            <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <?php echo htmlspecialchars($_SESSION["email"]); ?>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+              <a class="small dropdown-item" href="reset-password.php">Reset password</a>
+              <div class="dropdown-divider"></div>
+              <a class="small dropdown-item" href="logout.php">Logout</a>
+            </div>
+          </div>
+        </nav>
+
     </div>
 
     <!-- Navbar -->
@@ -91,10 +93,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           </ul>
         </div>
       </div>
-
-      <!-- <div class="row mt-4" id="display_folders"> -->
-
-      <!-- </div> -->
 
       <div class="row mt-4">
         <div class="col-md">
