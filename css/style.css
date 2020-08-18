@@ -53,6 +53,10 @@ a:not([href]):hover {
   background-color: #F4F5F7 !important;
 }
 
+.navbar {
+  justify-content: left;
+}
+
 .navbar-light .navbar-toggler {
   border: none;
 }
@@ -124,9 +128,20 @@ SIDEPANEL
     width: 100%;
   }
 
-
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .title-mobile, .badge-mobile {
+    display: unset !important;
+  }
+  h2[name="folderTitle"] {
+    display: none;
+  }
+  .badge-desktop {
+    display: none;
   }
 }
 

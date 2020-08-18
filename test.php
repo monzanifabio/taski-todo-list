@@ -57,6 +57,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <button class="btn btn-link btn-sm" id="menu-toggle"><i class="fas fa-chevron-circle-right"></i></button>
+      <h2 id="0" class="title mb-2 title-mobile d-none" name="folderTitle">Tasks</h2>
+      <span class="badge badge-secondary badge-mobile d-none" id="count_todos"></span>
     </nav>
 
 
@@ -65,7 +67,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <div class="row">
         <div class="col-md">
           <h2 id="0" class="title mb-2" name="folderTitle">Tasks</h2>
-          <span class="badge badge-secondary" id="count_todos"></span>
+          <span class="badge badge-secondary badge-desktop" id="count_todos"></span>
           <div class="filters float-right">
             <div class="dropdown d-inline">
               <button class="filters-select dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -166,7 +166,7 @@ $(document).ready(function(){
             'folder_id': savedFolder,
           },
           success: function(response){
-              $("#count_todos").html(response);
+              $("span[id='count_todos']").html(response);
           }
       });
     };
