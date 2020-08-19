@@ -477,6 +477,7 @@ $(document).ready(function(){
         countTodos();
         countCompleted();
         clearAll();
+        refreshFolders();
       }
     });
   };
@@ -516,3 +517,46 @@ $(document).ready(function(){
       }
     });
   };
+
+  //Move to Modal
+  function movetoModal(elem) {
+    $('#movetoFolderModal').modal();
+    var user_id = $('#user_id').val();
+    var todo_id = $('#todo-to-move').val($(elem).attr('id'));
+    $.ajax({
+      url: 'src/moveto-folders-list.php',
+      type: 'GET',
+      data: {
+        'user_id': user_id,
+      },
+      success: function(response){
+        $('#folders-list').html(response);
+        refreshCompleted();
+        countCompleted();
+        clearAll();
+      }
+    });
+  }
+
+  //Move to folder
+  function moveto(elem) {
+    var folder_id = $(elem).attr('id');
+    var todo_id = $('#todo-to-move').val();
+    alert(folder_id);
+    alert(todo_id);
+    $.ajax({
+      url: 'src/moveto-folder.php',
+      type: 'GET',
+      data: {
+        'folder_id': folder_id,
+        'todo_id': todo_id,
+      },
+      success: function(response){
+        refreshCompleted();
+        countCompleted();
+        countTodos();
+        refreshFolders();
+        $('#movetoFolderModal').modal('hide');
+      }
+    });
+  }

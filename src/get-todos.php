@@ -43,6 +43,7 @@ $result=mysqli_query($link, $query)
     }
     echo "</div>";
     echo "<div class='options'>";
+    echo "<a onclick='movetoModal(this)' id='" . $row['todo_id'] . "' class='button-folder far fa-folder badge-pill'></a>";
     echo "<a onclick='deleteTodo(this)' id='" . $row['todo_id'] . "' class='button-delete far fa-trash-alt badge-pill'></a>";
     if ($row['labelName'] == "") {
       echo "<a onclick='labelTodo(this)' id='" . $row['todo_id'] . "' class='button-label fas fa-tag badge-pill'></a>";

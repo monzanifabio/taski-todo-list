@@ -154,7 +154,7 @@ SIDEPANEL
   }
 }
 
-.button-delete, .button-tag, .button-label {
+.button-delete, .button-tag, .button-label, .button-folder {
   height: 25px;
   float: right;
 

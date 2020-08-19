@@ -45,7 +45,7 @@ $result=mysqli_query($link, $query)
     echo "</div>";
     echo "<div class='btn-group dropleft'>";
     echo "<a href='#' class='button-tag tag-" . $row['tag'] . "' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-    echo "<i class='fas fa-circle'></i>";
+    echo "<i class='far fa-folder'></i>";
     echo "</a>";
     echo "<div class='dropdown-menu dropdown-left' aria-labelledby='dropdownMenuButton'>";
     echo "<button onclick='tagTodo(this)' id='" . $row['todo_id'] . "' name='red' class='dropdown-item tag-red'><i class='fas fa-circle'></i></button>";

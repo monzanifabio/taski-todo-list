@@ -180,6 +180,27 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
   </div>
 
+  <!-- Move to folder Modal -->
+  <div class="modal fade" id="movetoFolderModal" tabindex="-1" role="dialog" aria-labelledby="movetoFolderModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Move to folder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <input type="hidden" id="todo-to-move">
+        </div>
+        <form>
+          <div id="folders-list" class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Label Modal -->
   <div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
