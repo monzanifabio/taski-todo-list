@@ -44,6 +44,13 @@ a:not([href]):hover {
   cursor: pointer;
 }
 
+.folder-name {
+  line-height: 1.5rem;
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: auto;
+}
+
 .registration {
   font-size: 12rem;
   color: #56DAA2;
