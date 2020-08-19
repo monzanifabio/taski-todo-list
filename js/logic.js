@@ -94,6 +94,7 @@ $(document).ready(function(){
               $("#display_area").html(response);
               $('.hidden').hide();
               recentLabels();
+              refreshCompleted();
           }
       });
     };
@@ -119,6 +120,7 @@ $(document).ready(function(){
               $("#display_area").html(response);
               $('.hidden').hide();
               countTodos();
+              refreshCompleted();
           }
       });
     };
@@ -141,11 +143,14 @@ $(document).ready(function(){
   //Refresh completed todo list
   function refreshCompleted() {
     var get_user_id = $('#user_id').val();
+    var savedFolder = localStorage.getItem('folder');
+    var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
           type: "GET",
           url: "src/get-completed.php",
           data: {
             'user_id': get_user_id,
+            'folder_id': folder_id,
           },
           success: function(response){
               $("#completed_area").html(response);

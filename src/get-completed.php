@@ -3,9 +3,10 @@
 require_once "../config/config.php";
 
 $user_id = $_GET['user_id'];
+$folder_id = $_GET['folder_id'];
 
 //running SQL query
-$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '1'" ;
+$query ="SELECT * FROM todos WHERE user_id = $user_id AND completed = '1' AND folder_id = $folder_id" ;
 $result=mysqli_query($link, $query)
   or die("Failed to load data.");
 // Store the number of retrieved rows
