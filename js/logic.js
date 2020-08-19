@@ -179,11 +179,13 @@ $(document).ready(function(){
   //Count completed
   function countCompleted() {
     var get_user_id = $('#user_id').val();
+    var folder_id = localStorage.getItem('folder');
     $.ajax({
           type: "GET",
           url: "src/count-completed.php",
           data: {
             'user_id': get_user_id,
+            'folder_id': folder_id,
           },
           success: function(response){
               $("#count_completed").html(response);
@@ -502,6 +504,7 @@ $(document).ready(function(){
         countTodos();
         countCompleted();
         clearAll();
+        refreshFolders();
       }
     });
   };
