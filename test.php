@@ -167,7 +167,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <form>
           <div class="modal-body">
             <div class="input-group mb-3 input-group-lg">
-              <input id="selected_folder_name" type="text" class="form-control border" placeholder="New folder name" required autocomplete="off" maxlength="12">
+              <input id="selected_folder_name" type="text" class="form-control border" placeholder="New folder name" required autocomplete="off" maxlength="16">
               <input type="hidden" id="folder_id" value="">
             </div>
           </div>
