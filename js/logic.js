@@ -70,6 +70,7 @@ $(document).ready(function(){
               $('.hidden').hide();
               recentLabels();
               countTodos();
+              refreshCompleted();
           }
       });
     };
@@ -143,8 +144,9 @@ $(document).ready(function(){
   //Refresh completed todo list
   function refreshCompleted() {
     var get_user_id = $('#user_id').val();
-    var savedFolder = localStorage.getItem('folder');
-    var folder_id = $('[name="folderTitle"]').attr('id');
+    var folder_id = localStorage.getItem('folder');
+    alert(folder_id);
+    // var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
           type: "GET",
           url: "src/get-completed.php",
