@@ -145,8 +145,6 @@ $(document).ready(function(){
   function refreshCompleted() {
     var get_user_id = $('#user_id').val();
     var folder_id = localStorage.getItem('folder');
-    alert(folder_id);
-    // var folder_id = $('[name="folderTitle"]').attr('id');
     $.ajax({
           type: "GET",
           url: "src/get-completed.php",
@@ -552,8 +550,6 @@ $(document).ready(function(){
   function moveto(elem) {
     var folder_id = $(elem).attr('id');
     var todo_id = $('#todo-to-move').val();
-    alert(folder_id);
-    alert(todo_id);
     $.ajax({
       url: 'src/moveto-folder.php',
       type: 'GET',
