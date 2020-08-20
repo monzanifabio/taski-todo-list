@@ -245,6 +245,10 @@ SIDEPANEL
   border: none;
 }
 
+.list-group-item-action, .list-group-item-action:hover {
+  background-color: #F4F5F7;
+}
+
 .todo {
   width: 100%;
   font-family: 'Poppins', sans-serif;
